@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>NPB勝敗予測 2026年6月11日</title>
+  <style>
+    :root {
+      --bg: #0B1220;
+      --card: #0F1A2E;
+      --card2: #132035;
+      --home: #FFB52E;
+      --visitor: #38BDF8;
+      --accent: #3FA66B;
+      --text: #E2E8F0;
+      --muted: #64748B;
+      --border: #1E2D45;
+      --danger: #EF4444;
+      --grade-b: #3B82F6;
+      --grade-c: #6B7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, 'Hiragino Sans', 'YuGothic', 'Yu Gothic', sans-serif;
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 0 0 48px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ─── Header ─── */
+    .header {
+      background: linear-gradient(160deg, #0F1A2E 0%, #132035 100%);
+      padding: 20px 16px 14px;
+      border-bottom: 2px solid var(--home);
+    }
+    .header-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--home);
+    }
+    .header-date {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--text);
+      margin: 4px 0 2px;
+      letter-spacing: -0.02em;
+    }
+    .header-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .header-sub span { color: var(--accent); font-weight: 600; }
+
+    /* ─── Pick Banner ─── */
+    .pick-banner {
+      margin: 14px 12px 0;
+      padding: 13px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(100,116,139,0.35);
+      background: rgba(100,116,139,0.08);
+    }
+    .pick-banner.has-pick {
+      border-color: rgba(63,166,107,0.5);
+      background: rgba(63,166,107,0.1);
+    }
+    .pick-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pick-title .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--muted);
+      flex-shrink: 0;
+    }
+    .has-pick .pick-title { color: var(--accent); }
+    .has-pick .pick-title .dot { background: var(--accent); }
+    .pick-body {
+      margin-top: 5px;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── News ticker ─── */
+    .news-strip {
+      margin: 10px 12px 0;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .news-strip strong { color: var(--visitor); }
+
+    /* ─── Section ─── */
+    section { padding: 0 12px; margin-top: 16px; }
+    .sec-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ─── Game Card ─── */
+    .game-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 13px 11px;
+      margin-bottom: 11px;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 9px;
+    }
+    .venue-time { font-size: 10px; color: var(--muted); }
+    .venue-time strong { display: block; font-size: 11px; color: #94A3B8; }
+
+    .grade-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 99px;
+      flex-shrink: 0;
+    }
+    .grade-b { background: rgba(59,130,246,0.18); color: var(--grade-b); }
+    .grade-c { background: rgba(107,114,128,0.18); color: var(--grade-c); }
+
+    /* Teams row */
+    .teams {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .team { text-align: center; }
+    .team-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 2px;
+    }
+    .team-tag.h { color: var(--home); }
+    .team-tag.v { color: var(--visitor); }
+
+    .team-name {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+    .team-name.h { color: var(--home); }
+    .team-name.v { color: var(--visitor); }
+
+    .team-starter {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .vs-col {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--border);
+      padding: 0 2px;
+    }
+
+    /* Probability bar */
+    .prob-wrap { margin-bottom: 8px; }
+    .prob-nums {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .prob-nums .h { color: var(--home); }
+    .prob-nums .v { color: var(--visitor); }
+    .prob-bar {
+      height: 9px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      background: var(--border);
+    }
+    .bar-h {
+      background: var(--home);
+      border-radius: 5px 0 0 5px;
+      transition: width 1s ease-out;
+    }
+    .bar-v {
+      background: var(--visitor);
+      border-radius: 0 5px 5px 0;
+      flex: 1;
+    }
+
+    /* Score + winner */
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+    .pred-score { color: var(--muted); }
+    .pred-score em { color: var(--accent); font-style: normal; font-weight: 700; }
+    .winner-tag {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .winner-home { background: rgba(255,181,46,0.15); color: var(--home); }
+    .winner-visitor { background: rgba(56,189,248,0.15); color: var(--visitor); }
+
+    /* Rationale */
+    .rationale {
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+    }
+    .rat-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .rat-list {
+      padding-left: 12px;
+      font-size: 11px;
+      color: #4B6178;
+      line-height: 1.65;
+    }
+    .rat-list li { margin-bottom: 0; }
+
+    /* ─── Standings ─── */
+    .stand-block {
+      margin-bottom: 16px;
+    }
+    .stand-league {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--home);
+      background: var(--card2);
+      padding: 5px 10px;
+      border-radius: 6px 6px 0 0;
+      border: 1px solid var(--border);
+      border-bottom: none;
+    }
+    table.stand-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+      font-size: 11px;
+    }
+    .stand-table th {
+      padding: 5px 6px;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--muted);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: var(--card2);
+    }
+    .stand-table th:nth-child(2) { text-align: left; }
+    .stand-table td {
+      padding: 6px 6px;
+      text-align: center;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(30,45,69,0.4);
+      font-variant-numeric: tabular-nums;
+    }
+    .stand-table td:nth-child(2) { text-align: left; color: var(--text); }
+    .stand-table tr:last-child td { border-bottom: none; }
+    .stand-table tr:first-child td:nth-child(1) { color: var(--accent); font-weight: 700; }
+
+    .tag-hot { color: var(--accent) !important; font-size: 10px; }
+    .tag-cold { color: var(--danger) !important; font-size: 10px; }
+    .tag-normal { font-size: 10px; }
+
+    .stand-note {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.55;
+    }
+
+    /* ─── Disclaimer ─── */
+    .disclaimer {
+      margin: 16px 12px 0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: rgba(15,26,46,0.8);
+      border: 1px solid var(--border);
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .disclaimer strong { color: #94A3B8; }
+
+    /* ─── Footer ─── */
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 10px;
+      color: #2A3D55;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header">
+  <div class="header-label">⚾ NPB 勝敗予測</div>
+  <div class="header-date">2026年6月11日（木）</div>
+  <div class="header-sub">
+    データ基準 <span>17:30 JST</span> ／
+    日本生命セ・パ交流戦 第4〜5カード 最終戦
+  </div>
+</div>
+
+<!-- ══ PICK BANNER ══ -->
+<div class="pick-banner">
+  <div class="pick-title">
+    <span class="dot"></span>厳選ピック ── 本日は見送り推奨
+  </div>
+  <div class="pick-body">
+    全6試合の最高確率は ソフトバンク 65%（Grade B）。
+    グレードA（70%以上）該当なし。<br>
+    根拠の薄い状況での無理なエントリーは避けてください。
+  </div>
+</div>
+
+<!-- ══ NEWS STRIP ══ -->
+<div class="news-strip">
+  <strong>📰 今日のポイント</strong><br>
+  楽天・塩川監督代行 就任2日目（前日0-7大敗）／
+  阪神・伊藤将司が3/29以来の復帰登板／
+  日本ハム 交流戦 6連勝中／
+  ソフトバンク 交流戦 8勝1敗で独走
+</div>
+
+<!-- ══ GAME CARDS ══ -->
+<section>
+  <div class="sec-title">確度順 試合カード（高 → 低）</div>
+
+  <!-- ① SB vs 阪神  65% B -->
+  <div class="game-card">
+    <div class="card-top">
+      <div class="venue-time">
+        <strong>みずほPayPayドーム 福岡</strong>
+        18:00 開始
+      </div>
+      <span class="grade-badge grade-b">Grade B</span>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <div class="team-tag h">HOME</div>
+        <div class="team-name h">SB</div>
+        <div class="team-starter">スチュワートJr</div>
+      </div>
+      <div class="vs-col">VS</div>
+      <div class="team">
+        <div class="team-tag v">VISITOR</div>
+        <div class="team-name v">阪神</div>
+        <div class="team-starter">伊藤将司</div>
+      </div>
+    </div>
+    <div class="prob-wrap">
+      <div class="prob-nums">
+        <span class="h">SB 65%</span>
+        <span class="v">阪神 35%</span>
+      </div>
+      <div class="prob-bar">
+        <div class="bar-h" style="width:65%"></div>
+        <div class="bar-v"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="pred-score">予想スコア: <em>SB 4-2 阪神</em></div>
+      <span class="winner-tag winner-home">SB 有利</span>
+    </div>
+    <div class="rationale">
+      <div class="rat-title">▶ 根拠</div>
+      <ul class="rat-list">
+        <li>SB 5連勝中・今カード6/9に10-4大勝の勢い継続</li>
+        <li>伊藤将司は3/29以来の復帰登板 → 実戦感に不安</li>
+        <li>スチュワートJr は今季交流戦好調・本拠地相性良好</li>
+        <li>SB打線（近藤・柳田ら）は得点力が交流戦トップクラス</li>
+        <li>阪神は今カード2連敗中・パ相手に勝率低迷</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ② 西武 vs 広島  64% B -->
+  <div class="game-card">
+    <div class="card-top">
+      <div class="venue-time">
+        <strong>ベルーナドーム（所沢）</strong>
+        18:00 開始
+      </div>
+      <span class="grade-badge grade-b">Grade B</span>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <div class="team-tag h">HOME</div>
+        <div class="team-name h">西武</div>
+        <div class="team-starter">平良海馬</div>
+      </div>
+      <div class="vs-col">VS</div>
+      <div class="team">
+        <div class="team-tag v">VISITOR</div>
+        <div class="team-name v">広島</div>
+        <div class="team-starter">F.ターノック</div>
+      </div>
+    </div>
+    <div class="prob-wrap">
+      <div class="prob-nums">
+        <span class="h">西武 64%</span>
+        <span class="v">広島 36%</span>
+      </div>
+      <div class="prob-bar">
+        <div class="bar-h" style="width:64%"></div>
+        <div class="bar-v"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="pred-score">予想スコア: <em>西武 4-2 広島</em></div>
+      <span class="winner-tag winner-home">西武 有利</span>
+    </div>
+    <div class="rationale">
+      <div class="rat-title">▶ 根拠</div>
+      <ul class="rat-list">
+        <li>パリーグ首位・西武のホームエース登板（平良海馬）</li>
+        <li>今カード 6/9: 4-3、6/10: 延長サヨナラ と完全制圧</li>
+        <li>広島は外国人先発ターノックで打者との相性が未確定</li>
+        <li>西武は交流戦 6勝1敗1分と全球団トップ水準</li>
+        <li>広島は交流戦アウェーで得点力が落ちる傾向</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ③ 楽天 vs 巨人（巨人 63% B） -->
+  <div class="game-card">
+    <div class="card-top">
+      <div class="venue-time">
+        <strong>楽天モバイルパーク宮城</strong>
+        18:00 開始
+      </div>
+      <span class="grade-badge grade-b">Grade B</span>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <div class="team-tag h">HOME</div>
+        <div class="team-name h">楽天</div>
+        <div class="team-starter">瀧中瞭太</div>
+      </div>
+      <div class="vs-col">VS</div>
+      <div class="team">
+        <div class="team-tag v">VISITOR</div>
+        <div class="team-name v">巨人</div>
+        <div class="team-starter">田中将大</div>
+      </div>
+    </div>
+    <div class="prob-wrap">
+      <div class="prob-nums">
+        <span class="h">楽天 37%</span>
+        <span class="v">巨人 63%</span>
+      </div>
+      <div class="prob-bar">
+        <div class="bar-h" style="width:37%"></div>
+        <div class="bar-v"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="pred-score">予想スコア: <em>巨人 5-2 楽天</em></div>
+      <span class="winner-tag winner-visitor">巨人（AWAY）有利</span>
+    </div>
+    <div class="rationale">
+      <div class="rat-title">▶ 根拠</div>
+      <ul class="rat-list">
+        <li>楽天 5連敗中・三木監督休養→塩川代行2日目（初日0-7大敗）</li>
+        <li>59試合目で自力優勝消滅済み・チームの士気低下懸念</li>
+        <li>巨人 6連勝中のセリーグ単独首位・田中将大が安定</li>
+        <li>今カード: 6/9 巨人8-2、6/10 巨人7-0と圧倒的</li>
+        <li>楽天ホームの反発力は数字上リスク要因として存在</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ④ ロッテ vs 中日  58% B -->
+  <div class="game-card">
+    <div class="card-top">
+      <div class="venue-time">
+        <strong>ZOZOマリンスタジアム（千葉）</strong>
+        18:00 開始
+      </div>
+      <span class="grade-badge grade-b">Grade B</span>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <div class="team-tag h">HOME</div>
+        <div class="team-name h">ロッテ</div>
+        <div class="team-starter">小島和哉</div>
+      </div>
+      <div class="vs-col">VS</div>
+      <div class="team">
+        <div class="team-tag v">VISITOR</div>
+        <div class="team-name v">中日</div>
+        <div class="team-starter">金丸夢斗</div>
+      </div>
+    </div>
+    <div class="prob-wrap">
+      <div class="prob-nums">
+        <span class="h">ロッテ 58%</span>
+        <span class="v">中日 42%</span>
+      </div>
+      <div class="prob-bar">
+        <div class="bar-h" style="width:58%"></div>
+        <div class="bar-v"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="pred-score">予想スコア: <em>ロッテ 3-2 中日</em></div>
+      <span class="winner-tag winner-home">ロッテ 小差優位</span>
+    </div>
+    <div class="rationale">
+      <div class="rat-title">▶ 根拠</div>
+      <ul class="rat-list">
+        <li>小島和哉（左腕エース）のZOZOマリンでのホーム登板</li>
+        <li>6/9 ロッテ3-1と中日に先勝し今カード勢い維持</li>
+        <li>中日・金丸夢斗は実績ある若手だがアウェー交流戦の壁</li>
+        <li>ZOZOマリンは海風の影響でスコアが接戦傾向になりやすい</li>
+        <li>両投手の質が拮抗しており、中日の反発も十分ありうる</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ⑤ オリックス vs ヤクルト  58% B -->
+  <div class="game-card">
+    <div class="card-top">
+      <div class="venue-time">
+        <strong>京セラドーム大阪</strong>
+        18:00 開始
+      </div>
+      <span class="grade-badge grade-b">Grade B</span>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <div class="team-tag h">HOME</div>
+        <div class="team-name h">Orix</div>
+        <div class="team-starter">A.エスピノーザ</div>
+      </div>
+      <div class="vs-col">VS</div>
+      <div class="team">
+        <div class="team-tag v">VISITOR</div>
+        <div class="team-name v">ヤク</div>
+        <div class="team-starter">下川隼佑</div>
+      </div>
+    </div>
+    <div class="prob-wrap">
+      <div class="prob-nums">
+        <span class="h">Orix 58%</span>
+        <span class="v">ヤクルト 42%</span>
+      </div>
+      <div class="prob-bar">
+        <div class="bar-h" style="width:58%"></div>
+        <div class="bar-v"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="pred-score">予想スコア: <em>Orix 4-2 ヤクルト</em></div>
+      <span class="winner-tag winner-home">Orix 小差優位</span>
+    </div>
+    <div class="rationale">
+      <div class="rat-title">▶ 根拠</div>
+      <ul class="rat-list">
+        <li>エスピノーザは今季好調の外国人右腕・本拠地実績良好</li>
+        <li>6/9 Orix4-3と今カード先勝中</li>
+        <li>ヤクルト・下川隼佑は若手で対パ戦の経験がまだ限定的</li>
+        <li>ヤクルトは交流戦でパリーグ相手に苦戦傾向（セ最下位付近）</li>
+        <li>京セラドームはオリックス守護神マチャドが鍵を握る</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ⑥ 日本ハム vs DeNA  56% C -->
+  <div class="game-card">
+    <div class="card-top">
+      <div class="venue-time">
+        <strong>エスコンフィールドHOKKAIDO（北広島）</strong>
+        18:00 開始
+      </div>
+      <span class="grade-badge grade-c">Grade C</span>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <div class="team-tag h">HOME</div>
+        <div class="team-name h">日ハム</div>
+        <div class="team-starter">孫易磊</div>
+      </div>
+      <div class="vs-col">VS</div>
+      <div class="team">
+        <div class="team-tag v">VISITOR</div>
+        <div class="team-name v">DeNA</div>
+        <div class="team-starter">東克樹</div>
+      </div>
+    </div>
+    <div class="prob-wrap">
+      <div class="prob-nums">
+        <span class="h">日ハム 56%</span>
+        <span class="v">DeNA 44%</span>
+      </div>
+      <div class="prob-bar">
+        <div class="bar-h" style="width:56%"></div>
+        <div class="bar-v"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <div class="pred-score">予想スコア: <em>日ハム 3-2 DeNA</em></div>
+      <span class="winner-tag winner-home">日ハム 僅差優位</span>
+    </div>
+    <div class="rationale">
+      <div class="rat-title">▶ 根拠</div>
+      <ul class="rat-list">
+        <li>日ハム 6連勝中のエスコンF本拠地試合・勢いは本物</li>
+        <li>先発・孫易磊は NPB 来日初登板 → 実績未知数が確度を下げる</li>
+        <li>DeNA・東克樹（今季5勝4敗）は格上の安定左腕エース</li>
+        <li>先発の質がDeNA有利だが、日ハム打線の地力で相殺</li>
+        <li>僅差想定。孫易磊が早期崩れると逆転される可能性大</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STANDINGS ══ -->
+<section>
+  <div class="sec-title">順位表（6月11日 試合前時点）</div>
+
+  <!-- パリーグ -->
+  <div class="stand-block">
+    <div class="stand-league">⚡ PACIFIC LEAGUE</div>
+    <table class="stand-table">
+      <thead>
+        <tr>
+          <th>順</th>
+          <th>チーム</th>
+          <th>交流戦</th>
+          <th>直近</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>西武</td>
+          <td>6-1-1</td>
+          <td><span class="tag-hot">大差首位</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>ソフトバンク</td>
+          <td>8-1-0</td>
+          <td><span class="tag-hot">5連勝中↑</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>日本ハム</td>
+          <td>未取得</td>
+          <td><span class="tag-hot">6連勝中↑</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>ロッテ</td>
+          <td>6-3-0</td>
+          <td><span class="tag-normal">安定中位</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>オリックス</td>
+          <td>未取得</td>
+          <td><span class="tag-normal">中位</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>楽天</td>
+          <td>未取得</td>
+          <td><span class="tag-cold">5連敗・自力V消滅</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- セリーグ -->
+  <div class="stand-block">
+    <div class="stand-league">⚡ CENTRAL LEAGUE</div>
+    <table class="stand-table">
+      <thead>
+        <tr>
+          <th>順</th>
+          <th>チーム</th>
+          <th>状況</th>
+          <th>直近</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>巨人</td>
+          <td>単独首位</td>
+          <td><span class="tag-hot">6連勝中↑</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>DeNA</td>
+          <td>未取得</td>
+          <td><span class="tag-normal">2位追走</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>阪神</td>
+          <td>未取得</td>
+          <td><span class="tag-cold">SBに2連敗中</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>広島</td>
+          <td>未取得</td>
+          <td><span class="tag-cold">西武に2連敗中</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>ヤクルト</td>
+          <td>未取得</td>
+          <td><span class="tag-cold">低迷</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>中日</td>
+          <td>未取得</td>
+          <td><span class="tag-cold">交流戦苦戦</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stand-note">
+    ※ 勝敗数・勝率・ゲーム差は公式サイトへのアクセスが不可（HTTP 403）のため未取得。<br>
+    交流戦成績は6月5日（3カード終了）時点の公開記事より。順位・状況は記事情報から推定。
+  </div>
+</section>
+
+<!-- ══ DISCLAIMER ══ -->
+<div class="disclaimer">
+  <strong>⚠ 免責事項</strong><br>
+  本ページの勝率・予想スコアは公開情報をもとにした統計的推定です。
+  的中を保証するものではありません。勝率65%は裏を返せば35%の確率で
+  負けることを意味します。投票・投資・賭博等への利用は自己責任でお願いします。
+  データ基準時刻（17:30 JST）以降の登録・抹消・天候変化は反映されていません。
+  取得できなかった情報は「未取得」と明記しています。
+</div>
+
+<div class="footer">
+  generated: 2026-06-11 17:30 JST &nbsp;|&nbsp; NPB予測サイト
+</div>
+
+</body>
+</html>
