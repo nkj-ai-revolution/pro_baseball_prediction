@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NPB予測 | 2026年6月12日(金) 交流戦</title>
+<title>NPB予測 | 2026年6月12日(金) 交流戦 朝版</title>
 <style>
   :root {
     --bg: #0B1220;
@@ -31,6 +31,12 @@
   header h1 .accent { color: var(--accent); }
   .date-line { margin-top: 6px; font-size: 15px; font-weight: 700; }
   .meta { margin-top: 4px; font-size: 11px; color: var(--muted); }
+  .badge-morning {
+    display: inline-block; margin-left: 6px;
+    background: rgba(63,166,107,.18); color: var(--accent);
+    border: 1px solid rgba(63,166,107,.5); border-radius: 999px;
+    font-size: 10px; font-weight: 700; padding: 1px 8px; vertical-align: middle;
+  }
   .notice {
     margin-top: 10px; font-size: 11px; color: var(--muted);
     background: var(--card2); border: 1px solid var(--line);
@@ -48,7 +54,7 @@
 
   .section-title {
     font-size: 13px; font-weight: 700; color: var(--muted);
-    letter-spacing: .12em; margin: 22px 0 10px; padding-left: 2px;
+    letter-spacing: .12em; margin: 22px 0 10px;
     border-left: 3px solid var(--accent); padding-left: 8px;
   }
 
@@ -60,6 +66,7 @@
   .grade {
     font-weight: 800; font-size: 12px; padding: 2px 10px; border-radius: 999px;
   }
+  .grade.A { background: rgba(255,181,46,.18); color: var(--home); border: 1px solid rgba(255,181,46,.5); }
   .grade.B { background: rgba(56,189,248,.12); color: var(--visitor); border: 1px solid rgba(56,189,248,.4); }
   .grade.C { background: rgba(139,152,172,.12); color: var(--muted); border: 1px solid rgba(139,152,172,.4); }
   .teams { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px; }
@@ -86,12 +93,14 @@
   .basis { margin-top: 10px; font-size: 12px; color: var(--muted); }
   .basis li { margin: 3px 0 3px 16px; }
   .basis .warn { color: #D9A441; }
+  .basis .up { color: var(--accent); }
 
   table.standings { width: 100%; border-collapse: collapse; font-size: 12px; }
   table.standings th, table.standings td {
     padding: 6px 4px; border-bottom: 1px solid var(--line); text-align: left;
   }
   table.standings th { color: var(--muted); font-weight: 600; font-size: 11px; }
+
   .results-list { font-size: 13px; }
   .results-list li {
     list-style: none; display: flex; justify-content: space-between;
@@ -108,6 +117,13 @@
   .news-box li { margin: 4px 0 4px 16px; }
   .unavailable { font-size: 12px; color: var(--muted); margin-top: 8px; }
 
+  .streak-badge {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    background: rgba(255,181,46,.15); color: var(--home);
+    border: 1px solid rgba(255,181,46,.4); border-radius: 4px;
+    padding: 1px 5px; margin-left: 4px;
+  }
+
   footer {
     margin-top: 26px; font-size: 10.5px; color: var(--muted);
     border-top: 1px solid var(--line); padding-top: 12px;
@@ -120,18 +136,19 @@
 
   <header>
     <h1>NPB <span class="accent">勝敗予測</span></h1>
-    <div class="date-line">2026年6月12日(金) セ・パ交流戦 全6試合</div>
-    <div class="meta">データ基準時刻: 2026年6月11日 23:55 JST</div>
-    <div class="notice">※ 本更新時点で6月11日の試合は全試合終了済みのため、次戦となる6月12日(金)の予測を掲載しています。6月12日は交流戦最終カード初戦で、全試合パ・リーグ本拠地開催です。</div>
+    <div class="date-line">2026年6月12日(金) セ・パ交流戦 全6試合 <span class="badge-morning">朝版</span></div>
+    <div class="meta">データ基準時刻: 2026年6月12日 09:00 JST（前夜予測から更新）</div>
+    <div class="notice">交流戦第17〜18日目。全試合パ・リーグ本拠地開催(18:00予定)。予告先発は朝版時点でも公示確認できず全試合「未取得」。前日6/11の全試合結果を反映して確率を再算出しています。</div>
   </header>
 
+  <!-- ===== 厳選ピック判定 ===== -->
   <section class="verdict">
     <div class="label">本日の厳選ピック判定</div>
     <div class="result">本日は見送り推奨</div>
-    <div class="sub">グレードA(勝率70%以上)該当なし。最上位はソフトバンク(64%・B)。<br>6/12は全試合の予告先発が未取得のため、全体に確度を抑えて算出しています。</div>
+    <div class="sub">グレードA(勝率70%以上)該当なし。最上位はソフトバンク(65%・B)。<br>予告先発が全試合未取得のため確率に限界あり。1試合の現実的上限は65%前後。</div>
   </section>
 
-  <div class="section-title">試合予測(確度順)</div>
+  <div class="section-title">試合予測（確度順） ― 全6試合グレードB/C</div>
 
   <!-- 1. ソフトバンク vs ヤクルト -->
   <article class="game">
@@ -141,14 +158,15 @@
     </div>
     <div class="starters"><span>先発: 未取得</span><span>先発: 未取得</span></div>
     <div class="bar-wrap">
-      <div class="bar-nums"><span class="h">64%</span><span class="v">36%</span></div>
-      <div class="bar"><div class="fill-h" style="width:64%"></div><div class="fill-v" style="width:36%"></div></div>
+      <div class="bar-nums"><span class="h">65%</span><span class="v">35%</span></div>
+      <div class="bar"><div class="fill-h" style="width:65%"></div><div class="fill-v" style="width:35%"></div></div>
     </div>
     <div class="score-line">予想スコア <b>4 - 2</b> でソフトバンク</div>
     <ul class="basis">
-      <li>ソフトバンクは5連勝中で本拠地戦。ヤクルトは7連敗中と直近の勢いの差が大きい</li>
-      <li>前日6/11は3-2の接戦でソフトバンク救援陣にやや消耗あり(木村光ら登板)</li>
-      <li class="warn">両軍の予告先発は未取得のため、その分確度を割引</li>
+      <li>ソフトバンクは交流戦で連勝継続中(6/5時点で7連勝確認、6/11も阪神を3-2で撃破)</li>
+      <li>ヤクルトは6/11にオリックスに4-2で敗れ連敗が続いており、交流戦を通じてパ球団相手に苦戦中</li>
+      <li>前日の救援陣消耗度は軽微(3-2の競り合いだが登板数は少数に抑えた模様)</li>
+      <li class="warn">両軍の予告先発は未取得のため確率を65%に抑制</li>
     </ul>
   </article>
 
@@ -156,25 +174,68 @@
   <article class="game">
     <div class="top"><span>エスコンフィールド / 18:00</span><span class="grade B">グレード B</span></div>
     <div class="teams">
-      <span class="team home">日本ハム</span><span class="vs">vs</span><span class="team visitor">中日</span>
+      <span class="team home">日本ハム<span class="streak-badge">7連勝</span></span><span class="vs">vs</span><span class="team visitor">中日</span>
     </div>
     <div class="starters"><span>先発: 未取得</span><span>先発: 未取得</span></div>
     <div class="bar-wrap">
-      <div class="bar-nums"><span class="h">62%</span><span class="v">38%</span></div>
-      <div class="bar"><div class="fill-h" style="width:62%"></div><div class="fill-v" style="width:38%"></div></div>
+      <div class="bar-nums"><span class="h">63%</span><span class="v">37%</span></div>
+      <div class="bar"><div class="fill-h" style="width:63%"></div><div class="fill-v" style="width:37%"></div></div>
     </div>
     <div class="score-line">予想スコア <b>4 - 2</b> で日本ハム</div>
     <ul class="basis">
-      <li>日本ハムは4季ぶりの7連勝中。前日はDeNAを完封(3-0)し投手陣が安定</li>
-      <li>中日は前日ロッテに2-3で接戦負け。ただし6/10には11得点と打線は侮れない</li>
-      <li>本拠地ドームでの開催が日本ハムに有利</li>
-      <li class="warn">両軍の予告先発は未取得(参考: 民間の先発予報では上沢×山野だが未確定情報)</li>
+      <li>日本ハムは4季ぶり7連勝達成(6/11に孫易磊が6回2安打8奪三振で来日初白星・3-0完封リレー)</li>
+      <li>連勝中はブルペン消耗を抑えた完投・完封勝利が多く、6/12も投手陣はフレッシュ</li>
+      <li>中日は6/11にロッテに3-2で敗れ3連敗。打線は交流戦で得点力が低下している</li>
+      <li>エスコンフィールドは天然芝ドームで日本ハムが圧倒的なホーム成績</li>
+      <li class="warn">両軍の予告先発は未取得</li>
     </ul>
   </article>
 
-  <!-- 3. 西武 vs 巨人 -->
+  <!-- 3. ロッテ vs DeNA -->
   <article class="game">
-    <div class="top"><span>ベルーナドーム / 18:00 ※</span><span class="grade B">グレード B</span></div>
+    <div class="top"><span>ZOZOマリンスタジアム / 18:00</span><span class="grade B">グレード B</span></div>
+    <div class="teams">
+      <span class="team home">ロッテ</span><span class="vs">vs</span><span class="team visitor">DeNA</span>
+    </div>
+    <div class="starters"><span>先発: 未取得</span><span>先発: 未取得</span></div>
+    <div class="bar-wrap">
+      <div class="bar-nums"><span class="h">60%</span><span class="v">40%</span></div>
+      <div class="bar"><div class="fill-h" style="width:60%"></div><div class="fill-v" style="width:40%"></div></div>
+    </div>
+    <div class="score-line">予想スコア <b>4 - 2</b> でロッテ</div>
+    <ul class="basis">
+      <li class="up">【朝版更新】DeNAが今季初6連敗に突入(6/11は日本ハムに0-3完封負け)。打線完全停止中</li>
+      <li>ロッテは6/11に中日を3-2で下して連勝継続。本拠地ZOZOマリンでの開催が有利</li>
+      <li>DeNAは東克樹ら先発陣は強力だが、打線の援護がなく先発の好投が勝利につながらない状況</li>
+      <li>ロッテ救援陣は6/10の大敗(4-11)の疲れがあるが、6/11は競り合いで抑えた</li>
+      <li class="warn">両軍の予告先発は未取得</li>
+    </ul>
+  </article>
+
+  <!-- 4. 楽天 vs 広島 -->
+  <article class="game">
+    <div class="top"><span>楽天モバイルパーク宮城 / 18:00</span><span class="grade B">グレード B</span></div>
+    <div class="teams">
+      <span class="team home">楽天</span><span class="vs">vs</span><span class="team visitor">広島</span>
+    </div>
+    <div class="starters"><span>先発: 未取得</span><span>先発: 未取得</span></div>
+    <div class="bar-wrap">
+      <div class="bar-nums"><span class="h">59%</span><span class="v">41%</span></div>
+      <div class="bar"><div class="fill-h" style="width:59%"></div><div class="fill-v" style="width:41%"></div></div>
+    </div>
+    <div class="score-line">予想スコア <b>4 - 3</b> で楽天</div>
+    <ul class="basis">
+      <li class="up">【朝版更新】広島は交流戦を通じてチーム得点・チーム打率ともに12球団ワーストと深刻な得点力不足</li>
+      <li>楽天は6/11に巨人を8-2で大勝。塩川代行体制2戦目で雰囲気が好転。瀧中が8回投げブルペン温存</li>
+      <li>楽天はパ・リーグ最下位付近(借金15前後)であり、広島との力量差は小さい点に注意</li>
+      <li>広島は6/11に西武に1-4で3連敗。投手陣は健闘しているが援護がない</li>
+      <li class="warn">両軍の予告先発は未取得</li>
+    </ul>
+  </article>
+
+  <!-- 5. 西武 vs 巨人 -->
+  <article class="game">
+    <div class="top"><span>ベルーナドーム / 18:00</span><span class="grade B">グレード B</span></div>
     <div class="teams">
       <span class="team home">西武</span><span class="vs">vs</span><span class="team visitor">巨人</span>
     </div>
@@ -185,16 +246,17 @@
     </div>
     <div class="score-line">予想スコア <b>3 - 2</b> で西武</div>
     <ul class="basis">
-      <li>西武は5連勝中でパ上位(5月末時点で首位)。前日は平良が6回1失点と先発陣好調</li>
-      <li>巨人はセ・リーグ首位の地力上位だが、前日楽天に2-8で大敗し連勝が6で止まった</li>
-      <li>前日は田中将大が2回5失点で早期降板し、巨人救援陣に負荷が残る</li>
+      <li>西武は6/11に広島を4-1で下し連勝継続。平良が6回1失点と先発安定</li>
+      <li>巨人は6/11に楽天に2-8で大敗し、6連勝がストップ。田中将大が古巣相手に2回5失点と炎上</li>
+      <li>巨人は6/11の大敗で救援陣が多く登板しておりブルペンに負担が残る</li>
+      <li>セ・リーグ首位(交流戦前から積み上げた地力)があり、西武リードとはいえ差は僅差</li>
       <li class="warn">両軍の予告先発は未取得</li>
     </ul>
   </article>
 
-  <!-- 4. オリックス vs 阪神 -->
+  <!-- 6. オリックス vs 阪神 -->
   <article class="game">
-    <div class="top"><span>京セラドーム大阪 / 18:00 ※</span><span class="grade C">グレード C</span></div>
+    <div class="top"><span>京セラドーム大阪 / 18:00</span><span class="grade C">グレード C</span></div>
     <div class="teams">
       <span class="team home">オリックス</span><span class="vs">vs</span><span class="team visitor">阪神</span>
     </div>
@@ -205,89 +267,70 @@
     </div>
     <div class="score-line">予想スコア <b>4 - 3</b> でオリックス</div>
     <ul class="basis">
-      <li>オリックスは3連勝中。前日はエスピノーザが7回1失点(6勝目)、マチャドが17セーブ目</li>
-      <li>阪神は3連敗中だがいずれも接戦で、地力ではセ上位。力量差は小さい</li>
-      <li>守護神マチャドは前日登板済みで連投時の運用に留意</li>
+      <li>オリックスは6/11にヤクルトを4-2で下した。エスピノーザが7回1失点(6勝目)、マチャドが17セーブ</li>
+      <li>阪神は6/11にソフトバンクに2-3で惜敗し3連敗。だがいずれも1点差以内の接戦で地力はある</li>
+      <li>守護神マチャドは6/11登板済みで連投時の運用に注意。前日の肉体的負担が読めない</li>
+      <li>京セラドームはオリックスが近年強いホームだが、対阪神は関西ダービー的側面で接戦になりやすい</li>
       <li class="warn">両軍の予告先発は未取得</li>
     </ul>
   </article>
 
-  <!-- 5. ロッテ vs DeNA -->
-  <article class="game">
-    <div class="top"><span>ZOZOマリン / 18:00</span><span class="grade C">グレード C</span></div>
-    <div class="teams">
-      <span class="team home">ロッテ</span><span class="vs">vs</span><span class="team visitor">DeNA</span>
-    </div>
-    <div class="starters"><span>先発: 未取得</span><span>先発: 未取得</span></div>
-    <div class="bar-wrap">
-      <div class="bar-nums"><span class="h">55%</span><span class="v">45%</span></div>
-      <div class="bar"><div class="fill-h" style="width:55%"></div><div class="fill-v" style="width:45%"></div></div>
-    </div>
-    <div class="score-line">予想スコア <b>4 - 3</b> でロッテ</div>
-    <ul class="basis">
-      <li>DeNAは今季初の5連敗中で、前日は日本ハムに完封負け(0-3)と打線が湿る</li>
-      <li>ロッテは前日中日に3-2で競り勝ったが、6/10の大敗(4-11)以降救援陣の消耗が懸念</li>
-      <li>本拠地ZOZOマリン開催はロッテにプラス</li>
-      <li class="warn">両軍の予告先発は未取得</li>
-    </ul>
-  </article>
-
-  <!-- 6. 楽天 vs 広島 -->
-  <article class="game">
-    <div class="top"><span>楽天モバイルパーク / 18:00 ※</span><span class="grade C">グレード C</span></div>
-    <div class="teams">
-      <span class="team home">楽天</span><span class="vs">vs</span><span class="team visitor">広島</span>
-    </div>
-    <div class="starters"><span>先発: 未取得</span><span>先発: 未取得</span></div>
-    <div class="bar-wrap">
-      <div class="bar-nums"><span class="h">53%</span><span class="v">47%</span></div>
-      <div class="bar"><div class="fill-h" style="width:53%"></div><div class="fill-v" style="width:47%"></div></div>
-    </div>
-    <div class="score-line">予想スコア <b>4 - 3</b> で楽天</div>
-    <ul class="basis">
-      <li>楽天は塩川監督代行体制2戦目の前日、巨人に8-2で快勝し雰囲気が好転</li>
-      <li>前日は瀧中が8回を投げ救援陣を温存できており、ブルペンはフレッシュ</li>
-      <li>広島は3連敗中(前日は西武に1-4)。ただし楽天はパ最下位(借金15前後)で地力差は紙一重</li>
-      <li class="warn">両軍の予告先発は未取得</li>
-    </ul>
-  </article>
-
-  <div class="section-title">前日 6/11(木) の結果 — パ・リーグ6戦全勝</div>
+  <!-- ===== 前日結果 ===== -->
+  <div class="section-title">前日 6/11(木) の結果 — パ・リーグ 6戦全勝</div>
   <div class="results-box">
     <ul class="results-list">
-      <li><span><span class="pl-win">ソフトバンク</span> - 阪神</span><span class="sc">3 - 2</span></li>
-      <li><span><span class="pl-win">日本ハム</span> - DeNA</span><span class="sc">3 - 0</span></li>
-      <li><span><span class="pl-win">西武</span> - 広島</span><span class="sc">4 - 1</span></li>
-      <li><span><span class="pl-win">オリックス</span> - ヤクルト</span><span class="sc">4 - 2</span></li>
-      <li><span><span class="pl-win">ロッテ</span> - 中日</span><span class="sc">3 - 2</span></li>
-      <li><span><span class="pl-win">楽天</span> - 巨人</span><span class="sc">8 - 2</span></li>
+      <li><span><span class="pl-win">日本ハム</span> ○ — DeNA ●</span><span class="sc">3 - 0</span></li>
+      <li><span><span class="pl-win">楽天</span> ○ — 巨人 ●</span><span class="sc">8 - 2</span></li>
+      <li><span><span class="pl-win">西武</span> ○ — 広島 ●</span><span class="sc">4 - 1</span></li>
+      <li><span><span class="pl-win">ロッテ</span> ○ — 中日 ●</span><span class="sc">3 - 2</span></li>
+      <li><span><span class="pl-win">オリックス</span> ○ — ヤクルト ●</span><span class="sc">4 - 2</span></li>
+      <li><span><span class="pl-win">ソフトバンク</span> ○ — 阪神 ●</span><span class="sc">3 - 2</span></li>
     </ul>
+    <div class="unavailable">※ 上記スコアは報道各社の要約情報に基づく。イニング別詳細は未取得。</div>
   </div>
 
-  <div class="section-title">順位・チーム状況(6/11終了時点)</div>
+  <!-- ===== 順位表 ===== -->
+  <div class="section-title">チーム状況（6/11終了時点 ― 推定）</div>
   <div class="standings-box">
     <table class="standings">
-      <tr><th>リーグ</th><th>判明している状況</th></tr>
-      <tr><td>セ</td><td>巨人が首位(6/11の敗戦で連勝6でストップ)。阪神・広島は3連敗、DeNAは5連敗、ヤクルトは7連敗と交流戦終盤でセ勢は総じて苦戦</td></tr>
-      <tr><td>パ</td><td>西武(5月末時点首位・現在5連勝)とソフトバンク(5連勝)が上位を競り、日本ハムが7連勝で追走。楽天は最下位(6/9時点で借金15)</td></tr>
+      <thead>
+        <tr><th>リーグ</th><th>チーム</th><th>直近の状況</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>パ</td><td>ソフトバンク</td><td>交流戦 連勝継続(6/5時点で7連勝) 交流戦首位争い</td></tr>
+        <tr><td>パ</td><td>日本ハム</td><td>7連勝達成(4季ぶり) 交流戦上位</td></tr>
+        <tr><td>パ</td><td>西武</td><td>連勝継続中 パ上位</td></tr>
+        <tr><td>パ</td><td>ロッテ</td><td>連勝継続</td></tr>
+        <tr><td>パ</td><td>オリックス</td><td>連勝継続</td></tr>
+        <tr><td>パ</td><td>楽天</td><td>監督代行体制(6/10〜) パ最下位圏 6/11大勝で連勝スタート</td></tr>
+        <tr><td>セ</td><td>巨人</td><td>セ首位(交流戦前7連勝) 6/11敗戦でパ相手6戦全敗</td></tr>
+        <tr><td>セ</td><td>DeNA</td><td>6連敗(今季初) 打線完全沈黙</td></tr>
+        <tr><td>セ</td><td>阪神</td><td>3連敗 いずれも接戦</td></tr>
+        <tr><td>セ</td><td>広島</td><td>3連敗 得点力12球団ワースト</td></tr>
+        <tr><td>セ</td><td>中日</td><td>3連敗</td></tr>
+        <tr><td>セ</td><td>ヤクルト</td><td>7連敗 交流戦で総崩れ</td></tr>
+      </tbody>
     </table>
-    <div class="unavailable">※ 各球団の勝敗数・勝率・ゲーム差の数値テーブルは未取得(NPB公式等への直接アクセス不可のため)。上記は報道で確認できた事実のみ記載。</div>
+    <div class="unavailable">※ 各球団の勝敗数・勝率・ゲーム差の数値テーブルは未取得（NPB公式・Yahoo!スポーツ等へのアクセス不可）。上記は報道で確認できた事実のみ記載。</div>
   </div>
 
-  <div class="section-title">主なニュース</div>
+  <!-- ===== ニュース ===== -->
+  <div class="section-title">主なニュース・登録情報</div>
   <div class="news-box">
     <ul>
-      <li><b>楽天</b>: 三木肇監督が成績不振により休養(6/10発表)。塩川達也ヘッドコーチが監督代行に。代行2戦目の6/11に初勝利</li>
-      <li><b>巨人</b>: 田中将大が古巣・楽天への凱旋登板で2回5失点KO(6/11)</li>
-      <li><b>日本ハム</b>: 7連勝(4季ぶり)。6/11は孫易磊が6回2安打8奪三振で来日初白星</li>
-      <li>6/12の出場選手登録・抹消情報: 未取得</li>
+      <li><b>楽天</b>: 三木肇監督が成績不振により休養(6/10発表)。塩川達也ヘッドコーチが監督代行に就任。代行体制2戦目の6/11に初勝利(8-2)</li>
+      <li><b>日本ハム</b>: 7連勝(4季ぶり)達成。6/11は孫易磊(スン・イーレイ)が来日初白星。先発・救援ともに安定</li>
+      <li><b>巨人</b>: 田中将大が古巣・楽天戦に先発するも2回5失点KO(6/11)。救援陣も打ち込まれ大敗</li>
+      <li><b>DeNA</b>: 打線が6連敗中に完全封殺状態。6/11は日本ハムに完封負け(0-3)</li>
+      <li><b>広島</b>: チーム打率・チーム得点数ともに12球団ワースト。投手は健闘も点が入らない構図</li>
+      <li>6/12の出場選手登録・抹消公示: 未取得</li>
     </ul>
   </div>
 
   <footer>
-    <p>※印の開始時刻は公式未確認(通常の金曜ナイター開始時刻を記載)。予告先発は本更新時点で公示を確認できず全試合「未取得」としています。</p>
     <p>本予測は公開情報に基づく参考情報であり、的中を保証するものではありません。1試合の予測精度には現実的な上限(65%前後)があります。</p>
-    <p>出典: NPB公式・日本経済新聞・スポニチ・Full-Count・マイナビニュース等の報道(2026年6月11日時点)。</p>
+    <p>予告先発は本更新時点(朝9時)で公式公示を確認できず全試合「未取得」としています。先発が判明した場合は確率が大きく変動する可能性があります。</p>
+    <p>出典: NPB公式・パ・リーグ公式・スポーツナビ・Full-Count等の報道(2026年6月11〜12日)。取得できない情報は「未取得」と明記し、推測で埋めていません。</p>
   </footer>
 
 </div>
