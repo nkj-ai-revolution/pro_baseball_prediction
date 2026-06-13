@@ -152,7 +152,6 @@
       color: var(--grade-c);
       border: 1px solid rgba(148,163,184,0.2);
     }
-
     .change-badge {
       font-size: 10px;
       font-weight: 700;
@@ -161,6 +160,11 @@
       background: rgba(134,239,172,0.1);
       color: #86efac;
       border: 1px solid rgba(134,239,172,0.25);
+    }
+    .change-badge.down {
+      background: rgba(252,165,165,0.1);
+      color: #fca5a5;
+      border-color: rgba(252,165,165,0.25);
     }
 
     .teams-row {
@@ -244,6 +248,9 @@
     .reason-list li .key { color: var(--text); font-weight: 600; }
     .reason-list li .pos { color: #86efac; }
     .reason-list li .neg { color: #fca5a5; }
+    .reason-list li .upd-pos { color: #86efac; font-weight: 700; }
+    .reason-list li .upd-neg { color: #fca5a5; font-weight: 700; }
+    .reason-list li .upd-neu { color: var(--muted); font-weight: 600; }
 
     /* STANDINGS */
     .standings-table {
@@ -332,7 +339,7 @@
     <div class="header-label">NPB プロ野球 AI 予測</div>
     <div class="header-date">2026年6月13日（土）</div>
     <div class="header-sub">日本生命セ・パ交流戦 最終週</div>
-    <div class="header-badge final">データ基準: 2026-06-13 最終分析版 ／ 先発全試合確認済</div>
+    <div class="header-badge final">データ基準: 2026-06-13 12:30 JST ／ 最終分析版</div>
   </div>
 
   <!-- YESTERDAY RESULTS -->
@@ -382,7 +389,7 @@
     <div class="pick-icon">🔍</div>
     <div>
       <div class="pick-title seeoff">本日は見送り推奨（最終確定）</div>
-      <div class="pick-body">グレードA（勝率70%以上）の該当試合なし。最高確度は西武・ロッテ同率65%（グレードB）。先発変更なし確認済・公示反映済。全6試合グレードB〜Cのため、単独勝負は推奨しません。</div>
+      <div class="pick-body">グレードA（勝率70%以上）の該当試合なし。最高確度は西武・日本ハム各68%（グレードB）。山野太一7勝1敗ERA1.92確認によりソフトバンクをグレードCへ格下げ（−7pt）。松葉今季初先発ERA4.50・ウィットリー1勝3敗ERA3.20・入江大生抹消・ジェリーERA1.50を最終反映。全6試合未開始。</div>
     </div>
   </div>
 
@@ -395,18 +402,19 @@
       <span style="color:var(--text);">日本ハム</span>：細野晴希（投手）抹消（前日先発の通常ローテ、影響なし）<br>
       <span style="color:var(--text);">阪神</span>：門別啓人（投手）抹消 ／ 榮枝裕貴（捕手）登録（影響軽微）<br>
       <span style="color:var(--text);">オリックス</span>：横山聖哉（内野手）登録 ／ 宮國凌空・堀柊那 抹消（影響軽微）<br>
-      <span style="color:#86efac;">先発投手：全6試合とも朝版から変更なし</span>
+      <span style="color:#86efac;">先発投手：全6試合とも朝版から変更なし（NPB公式確認済）</span>
     </div>
   </div>
 
   <!-- GAME CARDS -->
   <div class="section-title">本日の試合予測（確度順・最終版）</div>
 
-  <!-- 1: 西武 vs 巨人 65% B -->
+  <!-- 1: 西武 vs 巨人 68% B ／朝版比+3pt -->
   <div class="game-card grade-b-card">
     <div class="card-meta">
       <span class="card-venue">ベルーナドーム</span>
       <span class="grade-badge B">Grade B</span>
+      <span class="change-badge">前回比 +3pt</span>
       <span class="card-time">18:00</span>
     </div>
     <div class="teams-row">
@@ -422,11 +430,11 @@
     </div>
     <div class="prob-section">
       <div class="prob-labels">
-        <span class="prob-home">西武 65%</span>
-        <span class="prob-visitor">巨人 35%</span>
+        <span class="prob-home">西武 68%</span>
+        <span class="prob-visitor">巨人 32%</span>
       </div>
       <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:65%"></div>
+        <div class="prob-bar-fill fill-home" style="width:68%"></div>
       </div>
     </div>
     <div class="score-row">
@@ -435,16 +443,59 @@
       <span class="predicted-winner home-win">▲ 西武 優位</span>
     </div>
     <ul class="reason-list">
+      <li><span class="upd-pos">▲ +3pt</span>: F.ウィットリー詳細成績判明が主因</li>
+      <li><span class="key">F.ウィットリー</span>: <span class="neg">8試合 1勝3敗 ERA3.20</span>（四球20個・勝率.250）→ 先発質差が大きく拡大</li>
       <li><span class="key">隅田知一郎</span>: <span class="pos">交流戦2勝0敗 ERA1.06</span>（規定投球回到達・交流戦最高水準）</li>
       <li><span class="key">西武の交流戦記録</span>: <span class="pos">12勝2敗1分 勝率.857でリーグ断トツ1位</span></li>
       <li>前日も3-0完封勝利、<span class="pos">チーム全体の勢いが最高潮</span></li>
       <li>本拠地ベルーナドーム（ナイター）でホームアドバンテージ</li>
-      <li>F.ウィットリーの詳細成績は<span class="neg">未取得</span>のためリスクあり</li>
-      <li><span class="key">先発確認</span>: <span class="pos">NPBスケジュール・変更なし</span>（前回比 変動なし）</li>
     </ul>
   </div>
 
-  <!-- 2: ロッテ vs DeNA 65% B（朝版63%から+2pt） -->
+  <!-- 2: 日本ハム vs 中日 68% B ／朝版比+5pt -->
+  <div class="game-card grade-b-card">
+    <div class="card-meta">
+      <span class="card-venue">エスコンフィールド北海道</span>
+      <span class="grade-badge B">Grade B</span>
+      <span class="change-badge">前回比 +5pt</span>
+      <span class="card-time">14:00</span>
+    </div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">日本ハム</div>
+        <div class="team-starter">先発: 福島蓮</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">中日</div>
+        <div class="team-starter">先発: 松葉貴大</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">日本ハム 68%</span>
+        <span class="prob-visitor">中日 32%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:68%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">5 - 2</span>
+      <span class="predicted-winner home-win">▲ 日本ハム 優位</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="upd-pos">▲ +5pt</span>: 松葉貴大が今季初先発・ファームERA4.50と判明</li>
+      <li><span class="key">松葉貴大</span>: <span class="neg">今季初1軍先発（ファーム1勝5敗 ERA4.50）</span>。「結果が出なければ26年が終わる」と覚悟の登板</li>
+      <li><span class="key">交流戦記録</span>: <span class="pos">日本ハム12勝3敗 .800で3位</span> vs <span class="neg">中日6勝10敗 .375で7位</span></li>
+      <li>前日も細野晴希で3-1勝利、<span class="pos">2連勝中の好調な勢いを維持</span></li>
+      <li>本拠地エスコンフィールド北海道でホームアドバンテージ</li>
+      <li>福島蓮の詳細成績は<span class="neg">未取得</span>だが、松葉との先発格差は明確</li>
+    </ul>
+  </div>
+
+  <!-- 3: ロッテ vs DeNA 65% B ／朝版比+2pt（入江大生抹消） -->
   <div class="game-card grade-b-card">
     <div class="card-meta">
       <span class="card-venue">ZOZOマリンスタジアム</span>
@@ -478,99 +529,16 @@
       <span class="predicted-winner home-win">▲ ロッテ 優位</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">公示変更</span>: DeNA・入江大生（投手）<span class="neg">抹消</span> → <span class="pos">ブルペン弱体化が+2ptの根拠</span>（H.マルセリーノ登録で補充も即戦力差あり）</li>
+      <li><span class="upd-pos">▲ +2pt</span>: DeNA・入江大生（投手）抹消によるブルペン弱体化</li>
       <li><span class="key">交流戦記録</span>: <span class="pos">ロッテ9勝5敗2分 .643で4位</span> vs <span class="neg">DeNA4勝12敗 .250で11位</span></li>
       <li>DeNAは交流戦4勝12敗と<span class="neg">壊滅的な不振</span>が続く</li>
       <li>前日もロッテが3-2で勝利、<span class="pos">対DeNAで連勝中</span></li>
       <li>本拠地ZOZOマリンスタジアムでホームアドバンテージ</li>
-      <li>田中晴也・篠木健太郎の成績は<span class="neg">詳細未取得</span>（先発変更なし確認済）</li>
+      <li>田中晴也・篠木健太郎の成績は<span class="neg">詳細未取得</span></li>
     </ul>
   </div>
 
-  <!-- 3: ソフトバンク vs ヤクルト 64% B -->
-  <div class="game-card grade-b-card">
-    <div class="card-meta">
-      <span class="card-venue">みずほPayPayドーム</span>
-      <span class="grade-badge B">Grade B</span>
-      <span class="card-time">14:00</span>
-    </div>
-    <div class="teams-row">
-      <div class="team-block">
-        <div class="team-name home">ソフトバンク</div>
-        <div class="team-starter">先発: 前田悠伍</div>
-      </div>
-      <div class="vs-label">vs</div>
-      <div class="team-block">
-        <div class="team-name visitor">ヤクルト</div>
-        <div class="team-starter">先発: 山野太一</div>
-      </div>
-    </div>
-    <div class="prob-section">
-      <div class="prob-labels">
-        <span class="prob-home">ソフトバンク 64%</span>
-        <span class="prob-visitor">ヤクルト 36%</span>
-      </div>
-      <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:64%"></div>
-      </div>
-    </div>
-    <div class="score-row">
-      <span class="score-label">予想スコア</span>
-      <span class="score-val">5 - 2</span>
-      <span class="predicted-winner home-win">▲ ソフトバンク 優位</span>
-    </div>
-    <ul class="reason-list">
-      <li><span class="key">前田悠伍</span>: <span class="pos">シーズン3勝0敗 ERA3.13</span>（5先発・無敗を継続中）</li>
-      <li><span class="key">SBの交流戦記録</span>: <span class="pos">13勝3敗 勝率.813で2位</span> vs ヤクルト5勝10敗1分</li>
-      <li>前日逆転負け（2-4）の直後、<span class="pos">リバウンドへの強い動機</span></li>
-      <li>本拠地みずほPayPayドームでホームアドバンテージ</li>
-      <li>※前田純（SB）の抹消公示あるが<span class="pos">先発・前田悠伍とは別人のため影響なし</span></li>
-      <li>山野太一の詳細成績は<span class="neg">未取得</span>（先発変更なし確認済、前回比 変動なし）</li>
-    </ul>
-  </div>
-
-  <!-- 4: 日本ハム vs 中日 63% B -->
-  <div class="game-card grade-b-card">
-    <div class="card-meta">
-      <span class="card-venue">エスコンフィールド北海道</span>
-      <span class="grade-badge B">Grade B</span>
-      <span class="card-time">14:00</span>
-    </div>
-    <div class="teams-row">
-      <div class="team-block">
-        <div class="team-name home">日本ハム</div>
-        <div class="team-starter">先発: 福島蓮</div>
-      </div>
-      <div class="vs-label">vs</div>
-      <div class="team-block">
-        <div class="team-name visitor">中日</div>
-        <div class="team-starter">先発: 松葉貴大</div>
-      </div>
-    </div>
-    <div class="prob-section">
-      <div class="prob-labels">
-        <span class="prob-home">日本ハム 63%</span>
-        <span class="prob-visitor">中日 37%</span>
-      </div>
-      <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:63%"></div>
-      </div>
-    </div>
-    <div class="score-row">
-      <span class="score-label">予想スコア</span>
-      <span class="score-val">4 - 2</span>
-      <span class="predicted-winner home-win">▲ 日本ハム 優位</span>
-    </div>
-    <ul class="reason-list">
-      <li><span class="key">交流戦記録</span>: <span class="pos">日本ハム12勝3敗 .800で3位</span> vs <span class="neg">中日6勝10敗 .375で7位</span></li>
-      <li>前日も細野晴希で3-1勝利、<span class="pos">2連勝中の好調な勢いを維持</span></li>
-      <li>※細野晴希の抹消公示あるが<span class="pos">前日登板後の通常ローテ処置で影響なし</span></li>
-      <li>本拠地エスコンフィールド北海道でホームアドバンテージ</li>
-      <li>福島蓮・松葉貴大の成績は<span class="neg">詳細未取得</span>（先発変更なし確認済、前回比 変動なし）</li>
-    </ul>
-  </div>
-
-  <!-- 5: 楽天 vs 広島 58% B -->
+  <!-- 4: 楽天 vs 広島 58% B ／変動なし -->
   <div class="game-card grade-b-card">
     <div class="card-meta">
       <span class="card-venue">楽天モバイルパーク宮城</span>
@@ -603,19 +571,64 @@
       <span class="predicted-winner home-win">△ 楽天 微優位</span>
     </div>
     <ul class="reason-list">
+      <li><span class="upd-neu">― 変動なし</span>（先発・登録変更なし）</li>
       <li><span class="key">早川隆久</span>: <span class="pos">シーズン3勝2敗 ERA2.13 WHIP0.87</span>（QS率87.5%の安定した先発）</li>
       <li><span class="key">森下暢仁</span>: <span class="neg">シーズン4勝5敗 ERA4.53</span>（序盤から苦戦中。6月は改善傾向も不安定）</li>
       <li>先発の投手質差が楽天有利の主要因、両打線とも<span class="neg">低調</span>で接戦想定</li>
       <li>監督代行体制の楽天が昨日2-1勝利、<span class="pos">チームが一致団結</span></li>
-      <li>楽天4勝11敗(.267)vs広島3勝11敗1分(.214)と両チームとも交流戦低迷中（先発変更なし確認済、前回比 変動なし）</li>
+      <li>楽天4勝11敗(.267)vs広島3勝11敗1分(.214)と両チームとも交流戦低迷中</li>
     </ul>
   </div>
 
-  <!-- 6: オリックス vs 阪神 54% C -->
+  <!-- 5: ソフトバンク vs ヤクルト 57% C ／朝版比-7pt・グレードB→C格下げ -->
+  <div class="game-card grade-c-card">
+    <div class="card-meta">
+      <span class="card-venue">みずほPayPayドーム</span>
+      <span class="grade-badge C">Grade C</span>
+      <span class="change-badge down">前回比 −7pt</span>
+      <span class="card-time">14:00</span>
+    </div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">ソフトバンク</div>
+        <div class="team-starter">先発: 前田悠伍</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">ヤクルト</div>
+        <div class="team-starter">先発: 山野太一</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">ソフトバンク 57%</span>
+        <span class="prob-visitor">ヤクルト 43%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:57%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">3 - 2</span>
+      <span class="predicted-winner home-win">△ ソフトバンク 微優位</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="upd-neg">▼ −7pt・グレードB→C格下げ</span>: 山野太一7勝1敗 ERA1.92が判明</li>
+      <li><span class="key">山野太一</span>: <span class="neg">10試合 7勝1敗 ERA1.92 WHIP1.00</span>（現セ・リーグ最高水準のエース。投手差が逆転）</li>
+      <li><span class="key">前田悠伍</span>: <span class="pos">5先発 3勝0敗 ERA3.13</span>（無敗継続中だが山野との差は明確）</li>
+      <li><span class="key">SBの交流戦記録</span>: <span class="pos">13勝3敗 勝率.813で2位</span>（チーム力・ホームは依然有利）</li>
+      <li>前日逆転負け（2-4）の直後、<span class="pos">リバウンドへの強い動機</span></li>
+      <li>山野の圧倒的好調が番狂わせを起こす可能性が高く、<span class="neg">予測信頼度が低い</span></li>
+    </ul>
+  </div>
+
+  <!-- 6: オリックス vs 阪神 55% C ／朝版比+1pt -->
   <div class="game-card grade-c-card">
     <div class="card-meta">
       <span class="card-venue">京セラドーム大阪</span>
       <span class="grade-badge C">Grade C</span>
+      <span class="change-badge">前回比 +1pt</span>
       <span class="card-time">15:00</span>
     </div>
     <div class="teams-row">
@@ -631,11 +644,11 @@
     </div>
     <div class="prob-section">
       <div class="prob-labels">
-        <span class="prob-home">オリックス 54%</span>
-        <span class="prob-visitor">阪神 46%</span>
+        <span class="prob-home">オリックス 55%</span>
+        <span class="prob-visitor">阪神 45%</span>
       </div>
       <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:54%"></div>
+        <div class="prob-bar-fill fill-home" style="width:55%"></div>
       </div>
     </div>
     <div class="score-row">
@@ -644,12 +657,12 @@
       <span class="predicted-winner home-win">△ オリックス 微優位</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">髙橋遥人</span>: <span class="pos">交流戦2勝0敗 ERA0.60</span>（規定到達・交流戦最高防御率）→ 阪神にとって大きな有利要因</li>
+      <li><span class="upd-pos">▲ +1pt</span>: S.ジェリー詳細成績確認（好投も不運で勝ち星なし）</li>
+      <li><span class="key">S.ジェリー</span>: <span class="pos">4試合 0勝1敗 ERA1.50</span>（213cm右腕・実質好投継続。白星なしは不運）</li>
+      <li><span class="key">髙橋遥人</span>: <span class="pos">交流戦2勝0敗 ERA0.60</span>（規定到達・交流戦最高防御率）→ 阪神の最大の強み</li>
       <li><span class="key">交流戦記録</span>: オリックス8勝7敗1分(.533) vs <span class="neg">阪神4勝10敗(.286)で9位</span></li>
       <li>本拠地京セラドーム大阪でオリックスにホームアドバンテージ</li>
-      <li>前日もオリックスが2-1で勝利（入山が好投）、直近の勢いあり</li>
-      <li>※阪神・門別啓人（投手）抹消 / 榮枝裕貴（捕手）登録あるが<span class="pos">先発・髙橋遥人に影響なし</span></li>
-      <li>S.ジェリーの詳細成績は<span class="neg">未取得</span>（先発変更なし確認済、前回比 変動なし）</li>
+      <li>両エースが超好調で超ロースコア展開想定。<span class="neg">最も難解なカード</span>（確信度最低）</li>
     </ul>
   </div>
 
@@ -688,7 +701,7 @@
 
   <!-- DISCLAIMER -->
   <div class="disclaimer">
-    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>投資・賭博等の判断への使用は禁止します。「未取得」と記載した情報は推測で補完していません。本最終版はNPB公式スケジュール・登録公示（6/13付）を反映済みですが、試合開始後の状況変化（天候・故障等）は未反映です。予測はあくまでエンターテインメント目的でご利用ください。
+    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>投資・賭博等の判断への使用は禁止します。本最終版はNPB公式スケジュール・登録公示（6/13付）・個人成績ページ（6/12時点）を参照しています。データ基準時刻以降の先発変更・登録変更・天候変化は未反映です。予測はあくまでエンターテインメント目的でご利用ください。
   </div>
 
 </body>
