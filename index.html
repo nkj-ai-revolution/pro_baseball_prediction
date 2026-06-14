@@ -108,6 +108,9 @@
     .val.warn { color: #fca5a5; }
     .disclaimer { margin-top: 20px; padding: 10px 12px; background: var(--card-bg2); border: 1px solid var(--border); border-radius: 8px; font-size: 10px; color: var(--muted); line-height: 1.6; }
     .disclaimer .warn { color: var(--danger); font-weight: 700; }
+    .header-badge.final { background: rgba(63,166,107,0.15); border-color: rgba(63,166,107,0.4); color: var(--accent); }
+    .change-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 5px; border-radius: 3px; margin-left: 4px; background: rgba(63,166,107,0.15); color: #86efac; }
+    .change-badge.down { background: rgba(239,68,68,0.15); color: #fca5a5; }
   </style>
 </head>
 <body>
@@ -116,7 +119,7 @@
     <div class="header-label">NPB プロ野球 AI 予測</div>
     <div class="header-date">2026年6月14日（日）</div>
     <div class="header-sub">日本生命セ・パ交流戦 最終日 ／ 全18カード3連戦 完結</div>
-    <div class="header-badge">データ基準: 2026-06-14 08:00 JST ／ 朝版</div>
+    <div class="header-badge final">データ基準: 2026-06-14 12:30 JST ／ 最終分析版</div>
   </div>
 
   <div class="calib-notice">
@@ -222,7 +225,7 @@
     </ul>
   </div>
 
-  <!-- 4: ロッテ vs DeNA 57% C -->
+  <!-- 4: ロッテ vs DeNA 55% C -->
   <div class="game-card grade-c-card">
     <div class="card-meta"><span class="card-venue">ZOZOマリンスタジアム</span><span class="grade-badge C">Grade C</span><span class="card-time">14:00</span></div>
     <div class="teams-row">
@@ -231,16 +234,16 @@
       <div class="team-block"><div class="team-name visitor">DeNA</div><div class="team-starter">先発: 尾形崇斗</div></div>
     </div>
     <div class="prob-section">
-      <div class="prob-labels"><span class="prob-home">ロッテ 57%</span><span class="prob-visitor">DeNA 43%</span></div>
-      <div class="prob-bar-track"><div class="prob-bar-fill fill-home" style="width:57%"></div></div>
+      <div class="prob-labels"><span class="prob-home">ロッテ 55%<span class="change-badge down">前回比−2pt</span></span><span class="prob-visitor">DeNA 45%</span></div>
+      <div class="prob-bar-track"><div class="prob-bar-fill fill-home" style="width:55%"></div></div>
     </div>
-    <div class="score-row"><span class="score-label">予想スコア</span><span class="score-val">4 - 2</span><span class="predicted-winner home-win">△ ロッテ 微優位</span></div>
+    <div class="score-row"><span class="score-label">予想スコア</span><span class="score-val">3 - 2</span><span class="predicted-winner home-win">△ ロッテ 微優位</span></div>
     <ul class="reason-list">
       <li><span class="key">交流戦成績</span>: <span class="pos">ロッテ9勝6敗2分 .600（5位）</span> vs <span class="neg">DeNA5勝12敗 .294（11位）</span> ― 大差</li>
-      <li><span class="key">S.ロング</span>: ERA4.23 WHIP1.27 17登板（4先発） ― 主に中継ぎ、先発での安定感は未知</li>
-      <li><span class="key">尾形崇斗</span>: <span class="neg">5/31昇格直後・一軍先発実績なし（ファーム2試合11回0失点のみ）</span></li>
-      <li><span class="neg">前日ロッテ6-16大敗 → ブルペン消耗。尾形のデータ欠損でグレード上限B → 57%C</span></li>
-      <li>交流戦差は大きくロッテ有利だが、前日消耗と先発不確実性を加味し保守的評価</li>
+      <li><span class="key">S.ロング</span>: ERA4.23 WHIP1.27 17登板（4先発） ― 主に中継ぎ、先発安定感は未知</li>
+      <li><span class="key">尾形崇斗</span>: <span class="pos">DeNA移籍後2登板1勝0敗 ERA0.90 10回（朝版「実績なし」から大幅上方修正）</span></li>
+      <li><span class="neg">前日ロッテ6-16大敗 → ブルペン消耗継続。前日DeNA16得点と打線が爆発中</span></li>
+      <li>尾形データ判明で先発不確実性が解消。DeNA先発強化を織り込み−2pt調整。交流戦差はなお大きくロッテ優位維持</li>
     </ul>
   </div>
 
@@ -266,7 +269,7 @@
     </ul>
   </div>
 
-  <!-- 6: 楽天 vs 広島 54% C -->
+  <!-- 6: 楽天 vs 広島 53% C -->
   <div class="game-card grade-c-card">
     <div class="card-meta"><span class="card-venue">楽天モバイルパーク宮城</span><span class="grade-badge C">Grade C</span><span class="card-time">13:00</span></div>
     <div class="teams-row">
@@ -275,16 +278,16 @@
       <div class="team-block"><div class="team-name visitor">広島</div><div class="team-starter">先発: 岡本駿</div></div>
     </div>
     <div class="prob-section">
-      <div class="prob-labels"><span class="prob-home">楽天 54%</span><span class="prob-visitor">広島 46%</span></div>
-      <div class="prob-bar-track"><div class="prob-bar-fill fill-home" style="width:54%"></div></div>
+      <div class="prob-labels"><span class="prob-home">楽天 53%<span class="change-badge down">前回比−1pt</span></span><span class="prob-visitor">広島 47%</span></div>
+      <div class="prob-bar-track"><div class="prob-bar-fill fill-home" style="width:53%"></div></div>
     </div>
     <div class="score-row"><span class="score-label">予想スコア</span><span class="score-val">3 - 2</span><span class="predicted-winner home-win">△ 楽天 微優位</span></div>
     <ul class="reason-list">
       <li><span class="key">交流戦成績</span>: <span class="neg">楽天4勝12敗 .250（12位）</span> vs 広島4勝11敗1分 .267（11位） ― 両者最下位争い</li>
       <li><span class="key">シーズン成績</span>: 楽天.377（パ最下位） vs 広島.386（セ5位） ― 実力差ほぼなし</li>
       <li><span class="key">藤井聖</span>: ERA3.16 WHIP1.25 5登板4先発1勝2敗（2025年11勝ERA2.93の実力者、今季は苦戦）</li>
-      <li><span class="key">岡本駿</span>: <span class="neg">2026年先発転向1年目・一軍先発成績未取得</span>（2025年救援ERA2.88）</li>
-      <li>唯一の根拠は本拠地アドバンテージ(+4pt)。実力はほぼ互角のコインフリップ</li>
+      <li><span class="key">岡本駿</span>: <span class="pos">10登板4勝3敗 ERA2.63 WHIP1.25 54.2回（朝版「未取得」から更新）</span>― 先発として実績確立</li>
+      <li>岡本(ERA2.63) vs 藤井(ERA3.16)で広島先発が微優位。ホームアドバンテージのみが楽天根拠のコインフリップ</li>
     </ul>
   </div>
 
@@ -345,7 +348,7 @@
   </div>
 
   <div class="disclaimer">
-    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、62%の本命でも約38%は負ける。投資・賭博等の判断への使用は禁止します。本朝版はNPB公式予告先発（2026-06-14）・交流戦勝敗表（6/13終了後）・各選手個人成績（6/13-6/14参照）を使用。累積12試合は統計的に無意味な小サンプルであり、評価は数十試合単位で行う。単一試合の的中外れでロジックを過剰変更しない。
+    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、62%の本命でも約38%は負ける。投資・賭博等の判断への使用は禁止します。本最終分析版はNPB公式予告先発・登録公示（2026-06-14）・交流戦勝敗表（6/13終了後）・各選手個人成績（6/14 12:30参照）を使用。朝版比変動: ロッテ−2pt（尾形ERA0.90判明）・楽天−1pt（岡本ERA2.63判明）。累積12試合は統計的に無意味な小サンプルであり、評価は数十試合単位で行う。単一試合の的中外れでロジックを過剰変更しない。
   </div>
 
 </body>
