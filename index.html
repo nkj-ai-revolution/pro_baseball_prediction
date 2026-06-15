@@ -37,6 +37,7 @@
     .header-date { font-size: 22px; font-weight: 700; color: var(--home); letter-spacing: -0.02em; }
     .header-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
     .header-badge { display: inline-block; background: #1a2840; border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 10px; color: var(--muted); margin-top: 6px; }
+    .header-badge.final { background: rgba(63,166,107,0.12); border-color: rgba(63,166,107,0.4); color: var(--accent); }
     .no-game-banner { background: #0f1825; border: 1px solid var(--border); border-radius: 12px; padding: 28px 20px; margin: 16px 0; text-align: center; }
     .no-game-icon { font-size: 40px; margin-bottom: 10px; }
     .no-game-title { font-size: 20px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
@@ -81,7 +82,7 @@
     <div class="header-label">NPB プロ野球 AI 予測</div>
     <div class="header-date">2026年6月15日（月）</div>
     <div class="header-sub">リーグ戦再開待機日 ／ 交流戦終了後の定例休日</div>
-    <div class="header-badge">データ基準: 2026-06-14 終了時点 ／ 朝版</div>
+    <div class="header-badge final">データ基準: 2026-06-14 終了時点 ／ 最終分析版</div>
   </div>
 
   <div class="no-game-banner">
@@ -91,7 +92,9 @@
       月曜日はNPBの定例休日です。<br>
       交流戦（6/3〜6/14）が終了し、本日より<br>
       各リーグ公式戦の再開を待機中です。<br><br>
-      次回予測は 6/16（火）予定。
+      次回予測は 6/16（火）。<br>
+      阪神 vs 西武（甲子園 18:00）<br>
+      広島 vs 日本ハム（マツダ 18:00）
     </div>
   </div>
 
@@ -147,8 +150,16 @@
   </div>
 
   <div class="notice-box" style="margin-top:8px;">
-    <span style="color:var(--accent);font-weight:700;">較正メモ（6/15への申し送り）:</span>
+    <span style="color:var(--accent);font-weight:700;">較正メモ（6/16への申し送り）:</span>
     Brierスコア0.253（ランダム0.25とほぼ同水準・18試合）。グレードB/Cともに的中率50%で差なし。ERA10台以上の先発は確率を55%以下に抑制ルールを適用継続。交流戦終了→リーグ戦再開。6/16以降は交流戦順位ではなくリーグ別シーズン成績・先発ローテを参照する。
+  </div>
+
+  <div class="notice-box" style="margin-top:8px;">
+    <span style="color:var(--home);font-weight:700;">6/15付 登録公示（最終分析版取得）:</span><br>
+    <strong style="color:var(--muted);">【登録抹消】</strong><br>
+    セ: 西勇輝（阪神・投手）、吉川尚輝（巨人・内野手）、小田康一郎（DeNA・内野手）、涌井秀章・中西聖輝（中日・投手）<br>
+    パ: Ａ．アルメンタ（SFB・投手）、古林睿煬・福谷浩司（日本ハム・投手）<br>
+    <strong style="color:#fca5a5;">6/16予測への影響:</strong> 西勇輝が抹消済みのため阪神先発（6/16 vs 西武）は未定。古林・福谷が抹消済みのため日本ハム先発（6/16 vs 広島）は別投手を起用見込み。先発が確定次第6/16朝版で反映予定。
   </div>
 
   <div class="section-title" style="margin-top:20px;">2026シーズン順位表（6/14終了時点 / 交流戦終了）</div>
