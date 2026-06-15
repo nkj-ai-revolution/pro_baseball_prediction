@@ -69,7 +69,9 @@
     .standings-table .rate { font-weight: 700; color: var(--home); }
     .standings-table .team-abbr { font-weight: 600; }
     .notice-box { background: var(--card-bg2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; font-size: 10px; color: var(--muted); line-height: 1.6; }
-    .disclaimer { margin-top: 20px; padding: 10px 12px; background: var(--card-bg2); border: 1px solid var(--border); border-radius: 8px; font-size: 10px; color: var(--muted); line-height: 1.6; }
+    .about-note { margin-top: 20px; padding: 10px 12px; background: rgba(63,166,107,0.07); border: 1px solid rgba(63,166,107,0.25); border-radius: 8px; font-size: 10px; color: var(--muted); line-height: 1.6; }
+    .about-note .highlight { color: var(--accent); font-weight: 700; }
+    .disclaimer { margin-top: 8px; padding: 10px 12px; background: var(--card-bg2); border: 1px solid var(--border); border-radius: 8px; font-size: 10px; color: var(--muted); line-height: 1.6; }
     .disclaimer .warn { color: var(--danger); font-weight: 700; }
   </style>
 </head>
@@ -195,6 +197,10 @@
     <div style="margin-top:6px;border-top:1px solid var(--border);padding-top:6px;">
       数十試合未満は統計的に無意味。評価は数十試合単位で行う。単一試合の外れでロジックを過剰変更しない。
     </div>
+  </div>
+
+  <div class="about-note">
+    🎯 <span class="highlight">このサイトについて：</span>本予測は、野球好きの個人が「システムを使ってどこまで予測できるか」を純粋に楽しむ趣味プロジェクトです（仕事でシステムを扱っているため、その応用として取り組んでいます）。<span class="highlight">勝敗予想を賭博等に利用することは固く禁止します。</span>
   </div>
 
   <div class="disclaimer">
