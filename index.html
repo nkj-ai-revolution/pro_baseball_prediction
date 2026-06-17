@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>NPBプロ野球予測 2026-06-16</title>
+  <title>NPBプロ野球予測 2026-06-17</title>
   <style>
     :root {
       --bg: #0B1220;
@@ -78,7 +78,7 @@
     .visitor-win { background: rgba(56,189,248,0.15); color: var(--visitor); }
     .reason-list { list-style: none; margin-top: 6px; border-top: 1px solid var(--border); padding-top: 6px; }
     .reason-list li { font-size: 10px; color: var(--muted); padding: 1px 0 1px 10px; position: relative; }
-    .reason-list li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
+    .reason-list li::before { content: '\203A'; position: absolute; left: 0; color: var(--accent); }
     .reason-list li .key { color: var(--text); font-weight: 600; }
     .reason-list li .pos { color: #86efac; }
     .reason-list li .neg { color: #fca5a5; }
@@ -101,25 +101,20 @@
 
   <div class="header">
     <div class="header-label">NPB プロ野球 AI 予測</div>
-    <div class="header-date">2026年6月16日（火）</div>
-    <div class="header-sub">リーグ公式戦 全2試合（セ・パ対戦） ／ 交流戦終了後リーグ戦再開</div>
-    <div class="header-badge final">データ基準: 2026-06-16 12:30 JST ／ 最終分析版</div>
+    <div class="header-date">2026年6月17日（水）</div>
+    <div class="header-sub">セ・パ対戦 全1試合 ／ 阪神 vs 楽天（甲子園 18:00）</div>
+    <div class="header-badge">データ基準: 2026-06-17 08:00 JST ／ 朝版</div>
   </div>
 
   <div class="notice-box">
-    <span style="color:var(--muted);font-weight:700;">6/15（月）:</span> 定例休日のため試合なし。検証記録は6/14終了時点（18試合・的中率50.0%）から変動なし。
+    <span style="color:var(--accent);font-weight:700;">6/16 結果:</span>
+    広島 0-2 日本ハム（予測: 日本ハム64%B ✓的中）、阪神 0-1 西武（予測: 西武55%C ✓的中）
+    ／ <strong style="color:var(--home);">2勝0敗</strong> → 累積20試合: <strong style="color:var(--home);">11勝9敗 (55.0%)</strong> ／ Brier <strong style="color:var(--accent);">0.245</strong>（ランダム0.25を初めて下回り改善基調）
   </div>
 
   <div class="notice-box">
-    <span style="color:var(--accent);font-weight:700;">較正メモ（6/15夜版からの継続）:</span>
-    Brierスコア0.253（18試合・ランダム水準0.25）。グレードB/Cともに的中率50.0%で差なし。ERA10台以上の先発は確率55%以下に抑制するルールを継続適用。交流戦終了に伴い、本日からは交流戦順位ではなくリーグ別シーズン成績を主指標として評価。本日は朝版を経ず最終分析版で確率を初算出（6/15夜版時点では先発投手のみ確定済みだったため）。
-  </div>
-
-  <div class="notice-box">
-    <span style="color:var(--home);font-weight:700;">6/16付 登録公示:</span><br>
-    <strong style="color:var(--muted);">【登録】</strong> 斉藤優汰・黒原拓未（広島・投手）、達孝太（日本ハム・投手）、吉田賢吾（日本ハム・捕手）<br>
-    <strong style="color:var(--muted);">【登録抹消】</strong> セ・パ両リーグともになし<br>
-    斉藤優汰は本日付で再登録されたばかりでの先発。一軍登板間隔・調整状況が不確定要素として残るため評価に反映。
+    <span style="color:var(--accent);font-weight:700;">較正メモ（6/17朝版）:</span>
+    Brier 0.245（20試合・ランダム0.25↓）。ERA10台以上先発は55%以下に抑制継続。確率の現実的上限は65%前後。本日の<strong style="color:var(--visitor);">前田健太（楽天）</strong>は5/21抹消後の復帰初戦。二軍では6/6に7回無失点7K好投（ファーム4勝1敗・スタイル見直し後）を記録し調整完了を確認。ただし一軍復帰初戦には不確実性を加味し、一軍成績（ERA4.82・K/BB1.08）を主参照値として扱う。
   </div>
 
   <div class="section-title" style="margin-top:18px;">本日の厳選ピック判定</div>
@@ -127,67 +122,65 @@
     <div class="pick-icon">🔍</div>
     <div>
       <div class="pick-title seeoff">本日は見送り推奨（グレードA なし）</div>
-      <div class="pick-body">全2試合の最高確率は日本ハム64%（グレードB）。70%以上のグレードAは該当なし。グレードBは参考程度に留める。</div>
+      <div class="pick-body">最高確率は阪神63%（グレードB・参考推奨）。70%以上のグレードAは該当なし。本日は甲子園の1試合のみ開催。6/18は試合なし予定。</div>
     </div>
   </div>
 
-  <div class="section-title">本日の試合予測（確率降順）／ 全2試合</div>
+  <div class="section-title">本日の試合予測 ／ 全1試合</div>
 
-  <!-- 1: 広島 vs 日本ハム 64% B（日本ハム優位） -->
+  <!-- 阪神 vs 楽天 63% Grade B -->
   <div class="game-card grade-b-card">
-    <div class="card-meta"><span class="card-venue">マツダスタジアム</span><span class="grade-badge B">Grade B</span><span class="card-time">18:00</span></div>
+    <div class="card-meta">
+      <span class="card-venue">阪神甲子園球場</span>
+      <span class="grade-badge B">Grade B</span>
+      <span class="card-time">18:00</span>
+    </div>
     <div class="teams-row">
-      <div class="team-block"><div class="team-name home">広島</div><div class="team-starter">先発: 斉藤優汰</div></div>
+      <div class="team-block">
+        <div class="team-name home">阪神</div>
+        <div class="team-starter">先発: 大竹耕太郎</div>
+      </div>
       <div class="vs-label">vs</div>
-      <div class="team-block"><div class="team-name visitor">日本ハム</div><div class="team-starter">先発: 北山亘基</div></div>
+      <div class="team-block">
+        <div class="team-name visitor">楽天</div>
+        <div class="team-starter">先発: 前田健太</div>
+      </div>
     </div>
     <div class="prob-section">
-      <div class="prob-labels"><span class="prob-home">広島 36%</span><span class="prob-visitor">日本ハム 64%</span></div>
-      <div class="prob-bar-track"><div class="prob-bar-fill fill-home" style="width:36%"></div></div>
+      <div class="prob-labels">
+        <span class="prob-home">阪神 63%</span>
+        <span class="prob-visitor">楽天 37%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:63%"></div>
+      </div>
     </div>
-    <div class="score-row"><span class="score-label">予想スコア</span><span class="score-val">2 - 5</span><span class="predicted-winner visitor-win">▲ 日本ハム 優位</span></div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">3 - 1</span>
+      <span class="predicted-winner home-win">▲ 阪神 優位</span>
+    </div>
     <ul class="reason-list">
-      <li><span class="key">シーズン成績</span>: <span class="pos">日本ハム34勝28敗2分 .545（パ4位）</span> vs <span class="neg">広島23勝35敗3分 .397（セ5位）</span> ― 大差</li>
-      <li><span class="key">北山亘基</span>: <span class="pos">ERA2.33 WHIP0.99 K/BB3.87(58K/15BB) 10先発5勝2敗</span> ― リーグ屈指の安定感</li>
-      <li><span class="key">斉藤優汰</span>: <span class="neg">一軍ERA7.94(2先発5.2回・7安打2四球) 0勝1敗</span> ― 本日付で再登録されたばかり。二軍ではERA2.42と好投も一軍定着前で不確実性大</li>
-      <li>本拠地マツダで広島に+4pt適用するが、チーム力差・先発の質的差がそれを上回ると判断</li>
-      <li><span class="neg">注: 斉藤のサンプルはわずか2試合。大きく振れる可能性があり、1試合上限65%前後の範囲内で64%に設定</span></li>
+      <li><span class="key">シーズン成績</span>: <span class="pos">阪神33勝29敗1分 .532（セ3位）</span> vs <span class="neg">楽天23勝39敗1分 .371（パ最下位）</span> ― 差 .161 / チーム強度比から阪神の基本勝率は約59%</li>
+      <li><span class="key">大竹耕太郎（阪神・先発）</span>: <span class="pos">ERA 2.41 / K/BB 3.78（34K/9BB）/ 9先発 56.0回 / 2勝5敗</span> ― 防御率はリーグ上位水準。勝敗の悪さは援護不足が主因とみられ投球内容は安定</li>
+      <li><span class="key">前田健太（楽天・先発）</span>: <span class="neg">一軍 ERA 4.82 / WHIP 1.88 / K/BB 1.08（14K/13BB）/ 0勝2敗 / 5先発 18.2回</span> ― 5/21抹消後の復帰初戦。与四球が奪三振とほぼ同数で制球難が顕著。二軍では6/6に7回4安打無失点7K好投でスタイル見直し効果を示したが、一軍での再現性は未確認</li>
+      <li><span class="key">甲子園本拠地</span>: 阪神に+4pt。広大な外野により本塁打が出にくく、先発の被長打を抑制する傾向</li>
+      <li><span class="key">楽天打線</span>: パ最下位チーム（.371）。大竹の制球力（BB/9 ≈ 1.4）に対しては出塁機会が限られる</li>
+      <li><span class="neg">注: 前田健太は二軍での急回復が確認されており、復帰初戦の気迫・調整効果で接戦になるリスクはある。一軍の成績差は大きいが65%には届かず63%に設定</span></li>
     </ul>
   </div>
 
-  <!-- 2: 阪神 vs 西武 55% C（西武微優位） -->
-  <div class="game-card grade-c-card">
-    <div class="card-meta"><span class="card-venue">阪神甲子園球場</span><span class="grade-badge C">Grade C</span><span class="card-time">18:00</span></div>
-    <div class="teams-row">
-      <div class="team-block"><div class="team-name home">阪神</div><div class="team-starter">先発: 才木浩人</div></div>
-      <div class="vs-label">vs</div>
-      <div class="team-block"><div class="team-name visitor">西武</div><div class="team-starter">先発: 武内夏暉</div></div>
-    </div>
-    <div class="prob-section">
-      <div class="prob-labels"><span class="prob-home">阪神 45%</span><span class="prob-visitor">西武 55%</span></div>
-      <div class="prob-bar-track"><div class="prob-bar-fill fill-home" style="width:45%"></div></div>
-    </div>
-    <div class="score-row"><span class="score-label">予想スコア</span><span class="score-val">2 - 3</span><span class="predicted-winner visitor-win">△ 西武 微優位</span></div>
-    <ul class="reason-list">
-      <li><span class="key">シーズン成績</span>: <span class="pos">西武40勝23敗2分 .635（パ1位）</span> vs 阪神33勝28敗1分 .541（セ2位）</li>
-      <li><span class="key">才木浩人</span>: ERA3.69 WHIP1.09 K/BB5.86(82K/14BB) 11先発5勝3敗 ― 2025年最優秀防御率(1.55)も今季は数字上昇。制球は依然リーグ屈指</li>
-      <li><span class="key">武内夏暉</span>: ERA2.96 WHIP1.10 K/BB4.09(45K/11BB) 9先発4勝2敗 ― 防御率は才木を上回るが制球面はやや劣る。総合力はほぼ互角</li>
-      <li>本拠地甲子園で阪神に+4pt適用するが、シーズン成績差(.094)を埋めきれず西武をわずかに優位と判断</li>
-      <li><span class="neg">注: 両先発とも規定回到達済みでデータは充実。実質コインフリップに近い接戦</span></li>
-    </ul>
-  </div>
-
-  <div class="section-title" style="margin-top:20px;">2026シーズン順位表（6/14終了時点 ／ 6/15試合なし・変動なし）</div>
+  <div class="section-title" style="margin-top:20px;">2026シーズン順位表（6/16終了時点）</div>
   <div style="display:flex;gap:8px;">
     <div style="flex:1;">
       <div style="font-size:10px;color:var(--muted);font-weight:600;margin-bottom:4px;border-bottom:1px solid var(--border);padding-bottom:3px;">パ・リーグ</div>
       <table class="standings-table">
         <thead><tr><th>#</th><th>チーム</th><th>勝</th><th>敗</th><th>分</th><th>勝率</th></tr></thead>
         <tbody>
-          <tr class="pl"><td>1</td><td class="team-abbr">西武</td><td>40</td><td>23</td><td>2</td><td class="rate">.635</td></tr>
+          <tr class="pl"><td>1</td><td class="team-abbr">西武</td><td>41</td><td>23</td><td>2</td><td class="rate">.641</td></tr>
           <tr class="pl"><td>2</td><td class="team-abbr">SB</td><td>37</td><td>26</td><td>0</td><td class="rate">.587</td></tr>
           <tr class="pl"><td>3</td><td class="team-abbr">OX</td><td>35</td><td>28</td><td>1</td><td class="rate">.556</td></tr>
-          <tr class="pl"><td>4</td><td class="team-abbr">日本ハム</td><td>36</td><td>30</td><td>0</td><td class="rate">.545</td></tr>
+          <tr class="pl"><td>4</td><td class="team-abbr">日本ハム</td><td>37</td><td>30</td><td>0</td><td class="rate">.552</td></tr>
           <tr class="pl"><td>5</td><td class="team-abbr">ロッテ</td><td>31</td><td>31</td><td>2</td><td class="rate">.500</td></tr>
           <tr class="pl"><td>6</td><td class="team-abbr">楽天</td><td>23</td><td>39</td><td>1</td><td class="rate">.371</td></tr>
         </tbody>
@@ -199,28 +192,28 @@
         <thead><tr><th>#</th><th>チーム</th><th>勝</th><th>敗</th><th>分</th><th>勝率</th></tr></thead>
         <tbody>
           <tr class="cl"><td>1</td><td class="team-abbr">巨人</td><td>34</td><td>28</td><td>2</td><td class="rate">.548</td></tr>
-          <tr class="cl"><td>2</td><td class="team-abbr">阪神</td><td>33</td><td>28</td><td>1</td><td class="rate">.541</td></tr>
-          <tr class="cl"><td>3</td><td class="team-abbr">ヤクルト</td><td>34</td><td>29</td><td>1</td><td class="rate">.540</td></tr>
+          <tr class="cl"><td>2</td><td class="team-abbr">ヤクルト</td><td>34</td><td>29</td><td>1</td><td class="rate">.540</td></tr>
+          <tr class="cl"><td>3</td><td class="team-abbr">阪神</td><td>33</td><td>29</td><td>1</td><td class="rate">.532</td></tr>
           <tr class="cl"><td>4</td><td class="team-abbr">DeNA</td><td>26</td><td>36</td><td>2</td><td class="rate">.419</td></tr>
-          <tr class="cl"><td>5</td><td class="team-abbr">広島</td><td>23</td><td>35</td><td>3</td><td class="rate">.397</td></tr>
+          <tr class="cl"><td>5</td><td class="team-abbr">広島</td><td>23</td><td>36</td><td>3</td><td class="rate">.390</td></tr>
           <tr class="cl"><td>6</td><td class="team-abbr">中日</td><td>22</td><td>41</td><td>1</td><td class="rate">.349</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <div class="section-title" style="margin-top:18px;">予測精度サマリー（18試合終了時点・6/14検証済み）</div>
+  <div class="section-title" style="margin-top:18px;">予測精度サマリー（20試合終了時点・6/16検証済み）</div>
   <div style="background:var(--card-bg2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:10px;color:var(--muted);line-height:1.8;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-      <div>累積的中率: <strong style="color:var(--home);">50.0%</strong>（9/18）</div>
-      <div>Brierスコア: <strong style="color:#fca5a5;">0.253</strong>（ランダム=0.25）</div>
-      <div>グレードB的中率: <strong style="color:var(--home);">50.0%</strong>（6/12）</div>
-      <div>グレードC的中率: <strong style="color:var(--home);">50.0%</strong>（3/6）</div>
-      <div>ホーム予測的中: <strong style="color:var(--accent);">52.9%</strong>（9/17）</div>
-      <div>ビジター予測: <strong style="color:#fca5a5;">0.0%</strong>（0/1）</div>
+      <div>累積的中率: <strong style="color:var(--home);">55.0%</strong>（11/20）</div>
+      <div>Brierスコア: <strong style="color:var(--accent);">0.245</strong>（ランダム0.25↓ 初改善）</div>
+      <div>グレードB的中率: <strong style="color:var(--home);">53.8%</strong>（7/13）</div>
+      <div>グレードC的中率: <strong style="color:var(--home);">57.1%</strong>（4/7）</div>
+      <div>ホーム予測的中: <strong style="color:var(--muted);">52.9%</strong>（9/17）</div>
+      <div>ビジター予測: <strong style="color:var(--accent);">66.7%</strong>（2/3・小サンプル）</div>
     </div>
     <div style="margin-top:6px;border-top:1px solid var(--border);padding-top:6px;">
-      本日は2試合とも分析結果がビジター優位（西武・日本ハム）。印象論ではなくシーズン成績・先発成績の安定指標に基づく判断。数十試合未満は統計的に無意味であり、評価は数十試合単位で行う。
+      数試合では統計的に無意味。評価は数十試合単位。グレードCがBをわずかに上回るが7試合サンプルで過大評価しない。ERA10台以上先発55%以下・上限65%の較正ルール継続適用。
     </div>
   </div>
 
@@ -229,7 +222,7 @@
   </div>
 
   <div class="disclaimer">
-    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、64%の本命でも約36%は負ける。投資・賭博等の判断への使用は禁止します。本最終分析版はNPB公式予告先発・登録公示（2026-06-16）・各選手個人成績（2026年シーズン、6/15時点）を使用。本日は朝版を経ず最終分析版で確率を初算出。累積18試合は統計的に無意味な小サンプルであり、評価は数十試合単位で行う。単一試合の的中外れでロジックを過剰変更しない。
+    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、63%の本命でも約37%は負ける。投資・賭博等の判断への使用は禁止します。本予測はNPB公式予告先発（2026-06-17）・各選手個人成績（2026年シーズン、6/16時点）・スポーツナビ順位表（6/16終了時点）を使用。累積20試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。単一試合の的中外れでロジックを過剰変更しない。
   </div>
 
 </body>
