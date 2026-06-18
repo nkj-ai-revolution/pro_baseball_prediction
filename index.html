@@ -99,10 +99,6 @@
     .no-game-icon { font-size: 32px; margin-bottom: 8px; }
     .no-game-title { font-size: 16px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
     .no-game-body { font-size: 11px; color: var(--muted); line-height: 1.6; }
-    .schedule-card { background: var(--card-bg2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; }
-    .schedule-matchup { font-weight: 600; color: var(--text); }
-    .schedule-venue { font-size: 10px; color: var(--muted); }
-    .schedule-time { font-size: 10px; color: var(--muted); }
   </style>
 </head>
 <body>
@@ -111,13 +107,16 @@
     <div class="header-label">NPB プロ野球 AI 予測</div>
     <div class="header-date">2026年6月18日（木）</div>
     <div class="header-sub">共通予備日 — 本日は試合なし</div>
-    <div class="header-badge">データ基準: 2026-06-18 朝版</div>
+    <div class="header-badge final">データ基準: 2026-06-18 最終分析版</div>
   </div>
 
   <div class="notice-box">
     <span style="color:var(--accent);font-weight:700;">6/17 結果:</span>
     阪神 10-3 楽天（予測: 阪神63%B ✓的中）大竹耕太郎6回無失点・大山2ランHR先制
     ／ <strong style="color:var(--home);">1勝0敗</strong> → 累積21試合: <strong style="color:var(--home);">12勝9敗 (57.1%)</strong> ／ Brier <strong style="color:var(--accent);">0.240</strong>（ランダム0.25を継続的に下回り改善基調）
+    <span style="color:var(--muted);margin-top:4px;display:block;">
+      【6/18付 登録公示】抹消: 阪神・岡留英貴（投手）、ソフトバンク・髙橋隆慶（内野手）／ 新規登録なし（再登録可能日: 6月28日以降）
+    </span>
   </div>
 
   <div class="section-title" style="margin-top:18px;">本日の状況</div>
@@ -131,52 +130,257 @@
     </div>
   </div>
 
-  <div class="section-title">6/19（金）予定の試合カード ／ 全6試合</div>
+  <div class="section-title">6/19（金）先発確定・先行予測 ／ 全6試合</div>
   <div class="notice-box" style="margin-bottom:8px;font-size:10px;color:var(--muted);">
-    ※予告先発は6/19朝版更新時に取得予定。現時点ではカード・球場・時刻のみ。
+    最終分析版にて予告先発を取得・先行予測を初回算出。先発成績は6/17終了時点。朝版では予告先発未取得のためスケジュールのみ掲載（前回比変動なし・初回算出）。
   </div>
 
-  <div class="schedule-card">
+  <div class="pick-banner seeoff">
+    <div class="pick-icon">👀</div>
     <div>
-      <div class="schedule-matchup"><span style="color:var(--home);">巨人</span> vs <span style="color:var(--visitor);">中日</span></div>
-      <div class="schedule-venue">東京ドーム</div>
+      <div class="pick-title seeoff">厳選ピック（グレードA・70%以上）: 該当なし</div>
+      <div class="pick-body">最高62%（巨人）。全6試合グレードB（参考推奨）。両先発が好拮抗する試合が多く70%到達なし。</div>
     </div>
-    <div class="schedule-time">18:00</div>
   </div>
-  <div class="schedule-card">
-    <div>
-      <div class="schedule-matchup"><span style="color:var(--home);">ヤクルト</span> vs <span style="color:var(--visitor);">広島</span></div>
-      <div class="schedule-venue">明治神宮野球場</div>
+
+  <!-- 62% 巨人 -->
+  <div class="game-card grade-b-card">
+    <div class="card-meta">
+      <span class="card-venue">東京ドーム</span>
+      <span class="card-time">18:00</span>
+      <span class="grade-badge B">B</span>
     </div>
-    <div class="schedule-time">18:00</div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">巨人</div>
+        <div class="team-starter">竹丸和幸</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">中日</div>
+        <div class="team-starter">金丸夢斗</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">巨人 62%</span>
+        <span class="prob-visitor">中日 38%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:62%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">4-2</span>
+      <span class="predicted-winner home-win">巨人 予測</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="key">竹丸和幸 ERA2.76 WHIP1.18 K/BB3.71</span>（10登板62回）安定先発</li>
+      <li><span class="key">チーム成績差 .548(セ1位) vs .349(最下位) = .199</span>・セ最大格差</li>
+      <li><span class="pos">東京ドーム本拠地アドバンテージ（+4pt基準）</span></li>
+      <li>金丸夢斗ERA2.43は優秀（11登板4勝5敗）も中日援護不足が主因・先発単体格差は小</li>
+    </ul>
   </div>
-  <div class="schedule-card">
-    <div>
-      <div class="schedule-matchup"><span style="color:var(--home);">DeNA</span> vs <span style="color:var(--visitor);">阪神</span></div>
-      <div class="schedule-venue">横浜スタジアム</div>
+
+  <!-- 61% ヤクルト -->
+  <div class="game-card grade-b-card">
+    <div class="card-meta">
+      <span class="card-venue">明治神宮野球場</span>
+      <span class="card-time">18:00</span>
+      <span class="grade-badge B">B</span>
     </div>
-    <div class="schedule-time">18:15</div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">ヤクルト</div>
+        <div class="team-starter">吉村貢司郎</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">広島</div>
+        <div class="team-starter">F.ターノック</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">ヤクルト 61%</span>
+        <span class="prob-visitor">広島 39%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:61%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">3-1</span>
+      <span class="predicted-winner home-win">ヤクルト 予測</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="key">チーム成績差 .540 vs .390 = .150</span>（ヤクルト有意優位）</li>
+      <li><span class="pos">吉村貢司郎 ERA3.83 WHIP0.99（3勝5敗は援護不足主因）</span></li>
+      <li><span class="neg">F.ターノック ERA3.58 WHIP1.33 0勝3敗（7登板）やや不安定</span></li>
+      <li>明治神宮本拠地アドバンテージ（+4pt基準）</li>
+    </ul>
   </div>
-  <div class="schedule-card">
-    <div>
-      <div class="schedule-matchup"><span style="color:var(--home);">日本ハム</span> vs <span style="color:var(--visitor);">ソフトバンク</span></div>
-      <div class="schedule-venue">エスコンフィールド北海道</div>
+
+  <!-- 60% ロッテ -->
+  <div class="game-card grade-b-card">
+    <div class="card-meta">
+      <span class="card-venue">ZOZOマリンスタジアム</span>
+      <span class="card-time">18:00</span>
+      <span class="grade-badge B">B</span>
     </div>
-    <div class="schedule-time">18:00</div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">ロッテ</div>
+        <div class="team-starter">A.ジャクソン</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">楽天</div>
+        <div class="team-starter">荘司康誠</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">ロッテ 60%</span>
+        <span class="prob-visitor">楽天 40%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:60%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">4-3</span>
+      <span class="predicted-winner home-win">ロッテ 予測</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="key">チーム成績差 .500 vs .365 = .135</span>（ロッテ有意優位）</li>
+      <li><span class="key">A.ジャクソン ERA3.41 vs 荘司康誠 ERA3.91</span>: ロッテ先発微優位</li>
+      <li><span class="neg">ジャクソン BB27/68.2回（K/BB2.56）のコントロールリスクは加味済み</span></li>
+      <li>ZOZOマリン本拠地アドバンテージ（+4pt基準）</li>
+    </ul>
   </div>
-  <div class="schedule-card">
-    <div>
-      <div class="schedule-matchup"><span style="color:var(--home);">ロッテ</span> vs <span style="color:var(--visitor);">楽天</span></div>
-      <div class="schedule-venue">ZOZOマリンスタジアム</div>
+
+  <!-- 60% 阪神（ビジター） -->
+  <div class="game-card grade-b-card">
+    <div class="card-meta">
+      <span class="card-venue">横浜スタジアム</span>
+      <span class="card-time">18:15</span>
+      <span class="grade-badge B">B</span>
     </div>
-    <div class="schedule-time">18:00</div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">DeNA</div>
+        <div class="team-starter">石田裕太郎</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">阪神</div>
+        <div class="team-starter">村上頌樹</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">DeNA 40%</span>
+        <span class="prob-visitor">阪神 60%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:40%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">1-2</span>
+      <span class="predicted-winner visitor-win">阪神 予測</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="key">村上頌樹 ERA1.84 K/BB4.31</span>（12登板5勝4敗83回）リーグ最高水準先発</li>
+      <li><span class="key">チーム成績差 .540 vs .419 = .121</span>（阪神優位）</li>
+      <li>石田裕太郎 ERA2.28 K/BB5.50も優秀・DeNA本拠地+4pt考慮も村上優位を維持</li>
+      <li><span class="neg">6/18付 岡留英貴（阪神投手）抹消でブルペン薄化・先発依存度上がる</span></li>
+    </ul>
   </div>
-  <div class="schedule-card">
-    <div>
-      <div class="schedule-matchup"><span style="color:var(--home);">オリックス</span> vs <span style="color:var(--visitor);">西武</span></div>
-      <div class="schedule-venue">京セラドーム大阪</div>
+
+  <!-- 59% 西武（ビジター） -->
+  <div class="game-card grade-b-card">
+    <div class="card-meta">
+      <span class="card-venue">京セラドーム大阪</span>
+      <span class="card-time">18:00</span>
+      <span class="grade-badge B">B</span>
     </div>
-    <div class="schedule-time">18:00</div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">オリックス</div>
+        <div class="team-starter">A.エスピノーザ</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">西武</div>
+        <div class="team-starter">髙橋光成</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">オリックス 41%</span>
+        <span class="prob-visitor">西武 59%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:41%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">1-3</span>
+      <span class="predicted-winner visitor-win">西武 予測</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="key">髙橋光成 ERA1.08 K/BB3.59</span>（10登板7勝3敗75.1回）支配的先発</li>
+      <li><span class="key">チーム成績差 .641 vs .556 = .085</span>（西武優位）</li>
+      <li>A.エスピノーザ ERA1.97 K/BB3.75も優秀・京セラD本拠地+4pt加算後も西武優位を維持</li>
+      <li>ERA差1.08 vs 1.97（0.89差）が本拠地+4ptを上回ると判断</li>
+    </ul>
+  </div>
+
+  <!-- 58% ソフトバンク（ビジター） -->
+  <div class="game-card grade-b-card">
+    <div class="card-meta">
+      <span class="card-venue">エスコンフィールド北海道</span>
+      <span class="card-time">18:00</span>
+      <span class="grade-badge B">B</span>
+    </div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">日本ハム</div>
+        <div class="team-starter">伊藤大海</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">ソフトバンク</div>
+        <div class="team-starter">大津亮介</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">日本ハム 42%</span>
+        <span class="prob-visitor">ソフトバンク 58%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:42%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">1-2</span>
+      <span class="predicted-winner visitor-win">ソフトバンク 予測</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="key">大津亮介 ERA1.43 K/BB7.22</span>（10登板7勝1敗69.1回）今季最高水準先発</li>
+      <li><span class="key">チーム成績差 .587 vs .552 = .035</span>（SB微優位）</li>
+      <li>伊藤大海 ERA2.77 K/BB5.29（7勝3敗）も安定・エスコンF本拠地+4pt加算</li>
+      <li>本拠地+4pt加算後もSB先発質の優位が逆転・ビジター優位と判断</li>
+    </ul>
   </div>
 
   <div class="section-title" style="margin-top:20px;">2026シーズン順位表（6/17終了時点）</div>
@@ -231,7 +435,7 @@
   </div>
 
   <div class="disclaimer">
-    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、65%の本命でも約35%は負ける。投資・賭博等の判断への使用は禁止します。本ページは共通予備日（2026-06-18）のため予測なし。順位表は6/17終了時点のNPB公式成績を使用。累積21試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。単一試合の的中外れでロジックを過剰変更しない。
+    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、65%の本命でも約35%は負ける。投資・賭博等の判断への使用は禁止します。本ページは共通予備日（2026-06-18）の最終分析版。6/19先行予測は先発成績（6/17時点）・チーム成績（6/17終了時点）を基に算出。順位表は6/17終了時点のNPB公式成績を使用。累積21試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。単一試合の的中外れでロジックを過剰変更しない。
   </div>
 
 </body>
