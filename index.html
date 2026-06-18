@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>NPBプロ野球予測 2026-06-17</title>
+  <title>NPBプロ野球予測 2026-06-18</title>
   <style>
     :root {
       --bg: #0B1220;
@@ -95,83 +95,91 @@
     .about-note .highlight { color: var(--accent); font-weight: 700; }
     .disclaimer { margin-top: 8px; padding: 10px 12px; background: var(--card-bg2); border: 1px solid var(--border); border-radius: 8px; font-size: 10px; color: var(--muted); line-height: 1.6; }
     .disclaimer .warn { color: var(--danger); font-weight: 700; }
+    .no-game-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 24px 16px; text-align: center; margin-bottom: 14px; }
+    .no-game-icon { font-size: 32px; margin-bottom: 8px; }
+    .no-game-title { font-size: 16px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+    .no-game-body { font-size: 11px; color: var(--muted); line-height: 1.6; }
+    .schedule-card { background: var(--card-bg2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; }
+    .schedule-matchup { font-weight: 600; color: var(--text); }
+    .schedule-venue { font-size: 10px; color: var(--muted); }
+    .schedule-time { font-size: 10px; color: var(--muted); }
   </style>
 </head>
 <body>
 
   <div class="header">
     <div class="header-label">NPB プロ野球 AI 予測</div>
-    <div class="header-date">2026年6月17日（水）</div>
-    <div class="header-sub">セ・パ対戦 全1試合 ／ 阪神 vs 楽天（甲子園 18:00）</div>
-    <div class="header-badge final">データ基準: 2026-06-17 12:30 JST ／ 最終分析版</div>
+    <div class="header-date">2026年6月18日（木）</div>
+    <div class="header-sub">共通予備日 — 本日は試合なし</div>
+    <div class="header-badge">データ基準: 2026-06-18 朝版</div>
   </div>
 
   <div class="notice-box">
-    <span style="color:var(--accent);font-weight:700;">6/16 結果:</span>
-    広島 0-2 日本ハム（予測: 日本ハム64%B ✓的中）、阪神 0-1 西武（予測: 西武55%C ✓的中）
-    ／ <strong style="color:var(--home);">2勝0敗</strong> → 累積20試合: <strong style="color:var(--home);">11勝9敗 (55.0%)</strong> ／ Brier <strong style="color:var(--accent);">0.245</strong>（ランダム0.25を初めて下回り改善基調）
+    <span style="color:var(--accent);font-weight:700;">6/17 結果:</span>
+    阪神 10-3 楽天（予測: 阪神63%B ✓的中）大竹耕太郎6回無失点・大山2ランHR先制
+    ／ <strong style="color:var(--home);">1勝0敗</strong> → 累積21試合: <strong style="color:var(--home);">12勝9敗 (57.1%)</strong> ／ Brier <strong style="color:var(--accent);">0.240</strong>（ランダム0.25を継続的に下回り改善基調）
   </div>
 
-  <div class="notice-box">
-    <span style="color:var(--accent);font-weight:700;">最終分析変動サマリー（6/17）:</span>
-    先発変更なし（大竹耕太郎 vs 前田健太 確定）。登録公示（6/17付）: 阪神は<strong style="color:var(--home);">岡留英貴（投手）・小幡竜平（内野手）・小野寺暖（外野手）</strong>登録、立石正広・岡城快生 抹消。楽天は<strong style="color:var(--visitor);">前田健太</strong>が本日付で一軍登録（復帰確認）。前田の一軍QS率0.0%（5先発全未達成）を追加確認したが、ERA4.82・WHIP1.88は朝版で反映済み。阪神ブルペン強化（岡留英貴登録）・小幡竜平復帰は定量的確率変動根拠として不十分のため未反映。<strong style="color:var(--text);">確率変動: 前回比 0pt ／ 63%維持</strong>
+  <div class="section-title" style="margin-top:18px;">本日の状況</div>
+  <div class="no-game-box">
+    <div class="no-game-icon">📅</div>
+    <div class="no-game-title">本日は試合なし</div>
+    <div class="no-game-body">
+      6月18日（木）は共通予備日です。<br>
+      交流戦終了後の日程調整日となります。<br>
+      <strong style="color:var(--text);">6/19（金）より全12球団がリーグ戦を再開します。</strong>
+    </div>
   </div>
 
-  <div class="section-title" style="margin-top:18px;">本日の厳選ピック判定</div>
-  <div class="pick-banner seeoff">
-    <div class="pick-icon">🔍</div>
+  <div class="section-title">6/19（金）予定の試合カード ／ 全6試合</div>
+  <div class="notice-box" style="margin-bottom:8px;font-size:10px;color:var(--muted);">
+    ※予告先発は6/19朝版更新時に取得予定。現時点ではカード・球場・時刻のみ。
+  </div>
+
+  <div class="schedule-card">
     <div>
-      <div class="pick-title seeoff">本日は見送り推奨（グレードA なし）</div>
-      <div class="pick-body">最高確率は阪神63%（グレードB・参考推奨）。70%以上のグレードAは該当なし。本日は甲子園の1試合のみ開催。6/18は試合なし予定。</div>
+      <div class="schedule-matchup"><span style="color:var(--home);">巨人</span> vs <span style="color:var(--visitor);">中日</span></div>
+      <div class="schedule-venue">東京ドーム</div>
     </div>
+    <div class="schedule-time">18:00</div>
+  </div>
+  <div class="schedule-card">
+    <div>
+      <div class="schedule-matchup"><span style="color:var(--home);">ヤクルト</span> vs <span style="color:var(--visitor);">広島</span></div>
+      <div class="schedule-venue">明治神宮野球場</div>
+    </div>
+    <div class="schedule-time">18:00</div>
+  </div>
+  <div class="schedule-card">
+    <div>
+      <div class="schedule-matchup"><span style="color:var(--home);">DeNA</span> vs <span style="color:var(--visitor);">阪神</span></div>
+      <div class="schedule-venue">横浜スタジアム</div>
+    </div>
+    <div class="schedule-time">18:15</div>
+  </div>
+  <div class="schedule-card">
+    <div>
+      <div class="schedule-matchup"><span style="color:var(--home);">日本ハム</span> vs <span style="color:var(--visitor);">ソフトバンク</span></div>
+      <div class="schedule-venue">エスコンフィールド北海道</div>
+    </div>
+    <div class="schedule-time">18:00</div>
+  </div>
+  <div class="schedule-card">
+    <div>
+      <div class="schedule-matchup"><span style="color:var(--home);">ロッテ</span> vs <span style="color:var(--visitor);">楽天</span></div>
+      <div class="schedule-venue">ZOZOマリンスタジアム</div>
+    </div>
+    <div class="schedule-time">18:00</div>
+  </div>
+  <div class="schedule-card">
+    <div>
+      <div class="schedule-matchup"><span style="color:var(--home);">オリックス</span> vs <span style="color:var(--visitor);">西武</span></div>
+      <div class="schedule-venue">京セラドーム大阪</div>
+    </div>
+    <div class="schedule-time">18:00</div>
   </div>
 
-  <div class="section-title">本日の試合予測 ／ 全1試合</div>
-
-  <!-- 阪神 vs 楽天 63% Grade B -->
-  <div class="game-card grade-b-card">
-    <div class="card-meta">
-      <span class="card-venue">阪神甲子園球場</span>
-      <span class="grade-badge B">Grade B</span>
-      <span class="card-time">18:00</span>
-    </div>
-    <div class="teams-row">
-      <div class="team-block">
-        <div class="team-name home">阪神</div>
-        <div class="team-starter">先発: 大竹耕太郎</div>
-      </div>
-      <div class="vs-label">vs</div>
-      <div class="team-block">
-        <div class="team-name visitor">楽天</div>
-        <div class="team-starter">先発: 前田健太</div>
-      </div>
-    </div>
-    <div class="prob-section">
-      <div class="prob-labels">
-        <span class="prob-home">阪神 63%</span>
-        <span class="prob-visitor">楽天 37%</span>
-      </div>
-      <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:63%"></div>
-      </div>
-    </div>
-    <div class="score-row">
-      <span class="score-label">予想スコア</span>
-      <span class="score-val">3 - 1</span>
-      <span class="predicted-winner home-win">▲ 阪神 優位</span>
-    </div>
-    <ul class="reason-list">
-      <li><span class="key">シーズン成績</span>: <span class="pos">阪神33勝29敗1分 .532（セ3位）</span> vs <span class="neg">楽天23勝39敗1分 .371（パ最下位）</span> ― 差 .161 / チーム強度比から阪神の基本勝率は約59%</li>
-      <li><span class="key">大竹耕太郎（阪神・先発）</span>: <span class="pos">ERA 2.41 / K/BB 3.78（34K/9BB）/ 9先発 56.0回 / 2勝5敗</span> ― 防御率はリーグ上位水準。勝敗の悪さは援護不足が主因とみられ投球内容は安定</li>
-      <li><span class="key">前田健太（楽天・先発）</span>: <span class="neg">一軍 ERA 4.82 / WHIP 1.88 / K/BB 1.08（14K/13BB）/ 0勝2敗 / 5先発 18.2回</span> ― 5/21抹消後の復帰初戦。与四球が奪三振とほぼ同数で制球難が顕著。二軍では6/6に7回4安打無失点7K好投でスタイル見直し効果を示したが、一軍での再現性は未確認</li>
-      <li><span class="key">甲子園本拠地</span>: 阪神に+4pt。広大な外野により本塁打が出にくく、先発の被長打を抑制する傾向</li>
-      <li><span class="key">楽天打線</span>: パ最下位チーム（.371）。大竹の制球力（BB/9 ≈ 1.4）に対しては出塁機会が限られる</li>
-      <li><span class="neg">注: 前田健太は二軍での急回復が確認されており、復帰初戦の気迫・調整効果で接戦になるリスクはある。一軍の成績差は大きいが65%には届かず63%に設定</span></li>
-      <li><span class="key">【最終分析】前回比 0pt（変動なし）</span>: 先発変更なし・前田一軍QS率0.0%（5先発全未達成）を追加確認したが朝版ERA4.82に反映済み。岡留英貴登録（阪神ブルペン強化）・小幡竜平復帰は定量的根拠不足のため確率に未反映 → <strong>63%維持</strong></li>
-    </ul>
-  </div>
-
-  <div class="section-title" style="margin-top:20px;">2026シーズン順位表（6/16終了時点）</div>
+  <div class="section-title" style="margin-top:20px;">2026シーズン順位表（6/17終了時点）</div>
   <div style="display:flex;gap:8px;">
     <div style="flex:1;">
       <div style="font-size:10px;color:var(--muted);font-weight:600;margin-bottom:4px;border-bottom:1px solid var(--border);padding-bottom:3px;">パ・リーグ</div>
@@ -183,7 +191,7 @@
           <tr class="pl"><td>3</td><td class="team-abbr">OX</td><td>35</td><td>28</td><td>1</td><td class="rate">.556</td></tr>
           <tr class="pl"><td>4</td><td class="team-abbr">日本ハム</td><td>37</td><td>30</td><td>0</td><td class="rate">.552</td></tr>
           <tr class="pl"><td>5</td><td class="team-abbr">ロッテ</td><td>31</td><td>31</td><td>2</td><td class="rate">.500</td></tr>
-          <tr class="pl"><td>6</td><td class="team-abbr">楽天</td><td>23</td><td>39</td><td>1</td><td class="rate">.371</td></tr>
+          <tr class="pl"><td>6</td><td class="team-abbr">楽天</td><td>23</td><td>40</td><td>1</td><td class="rate">.365</td></tr>
         </tbody>
       </table>
     </div>
@@ -194,7 +202,7 @@
         <tbody>
           <tr class="cl"><td>1</td><td class="team-abbr">巨人</td><td>34</td><td>28</td><td>2</td><td class="rate">.548</td></tr>
           <tr class="cl"><td>2</td><td class="team-abbr">ヤクルト</td><td>34</td><td>29</td><td>1</td><td class="rate">.540</td></tr>
-          <tr class="cl"><td>3</td><td class="team-abbr">阪神</td><td>33</td><td>29</td><td>1</td><td class="rate">.532</td></tr>
+          <tr class="cl"><td>2</td><td class="team-abbr">阪神</td><td>34</td><td>29</td><td>1</td><td class="rate">.540</td></tr>
           <tr class="cl"><td>4</td><td class="team-abbr">DeNA</td><td>26</td><td>36</td><td>2</td><td class="rate">.419</td></tr>
           <tr class="cl"><td>5</td><td class="team-abbr">広島</td><td>23</td><td>36</td><td>3</td><td class="rate">.390</td></tr>
           <tr class="cl"><td>6</td><td class="team-abbr">中日</td><td>22</td><td>41</td><td>1</td><td class="rate">.349</td></tr>
@@ -203,18 +211,18 @@
     </div>
   </div>
 
-  <div class="section-title" style="margin-top:18px;">予測精度サマリー（20試合終了時点・6/16検証済み）</div>
+  <div class="section-title" style="margin-top:18px;">予測精度サマリー（21試合終了時点・6/17検証済み）</div>
   <div style="background:var(--card-bg2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:10px;color:var(--muted);line-height:1.8;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-      <div>累積的中率: <strong style="color:var(--home);">55.0%</strong>（11/20）</div>
-      <div>Brierスコア: <strong style="color:var(--accent);">0.245</strong>（ランダム0.25↓ 初改善）</div>
-      <div>グレードB的中率: <strong style="color:var(--home);">53.8%</strong>（7/13）</div>
+      <div>累積的中率: <strong style="color:var(--home);">57.1%</strong>（12/21）</div>
+      <div>Brierスコア: <strong style="color:var(--accent);">0.240</strong>（ランダム0.25↓ 改善継続）</div>
+      <div>グレードB的中率: <strong style="color:var(--home);">57.1%</strong>（8/14）</div>
       <div>グレードC的中率: <strong style="color:var(--home);">57.1%</strong>（4/7）</div>
-      <div>ホーム予測的中: <strong style="color:var(--muted);">52.9%</strong>（9/17）</div>
+      <div>ホーム予測的中: <strong style="color:var(--muted);">55.6%</strong>（10/18）</div>
       <div>ビジター予測: <strong style="color:var(--accent);">66.7%</strong>（2/3・小サンプル）</div>
     </div>
     <div style="margin-top:6px;border-top:1px solid var(--border);padding-top:6px;">
-      数試合では統計的に無意味。評価は数十試合単位。グレードCがBをわずかに上回るが7試合サンプルで過大評価しない。ERA10台以上先発55%以下・上限65%の較正ルール継続適用。
+      数試合では統計的に無意味。評価は数十試合単位。グレードBとCが同率57.1%。3試合連続的中（6/16: 64%・55%、6/17: 63%）だが基礎ロジックは変更しない。ERA10台以上先発55%以下・上限65%・ホーム+4ptの較正ルール継続適用。
     </div>
   </div>
 
@@ -223,7 +231,7 @@
   </div>
 
   <div class="disclaimer">
-    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、63%の本命でも約37%は負ける。投資・賭博等の判断への使用は禁止します。本予測はNPB公式予告先発（2026-06-17）・登録公示（2026-06-17付）・各選手個人成績（2026年シーズン、6/17公示時点）・スポーツナビ順位表（6/16終了時点）を使用。累積20試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。単一試合の的中外れでロジックを過剰変更しない。
+    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、65%の本命でも約35%は負ける。投資・賭博等の判断への使用は禁止します。本ページは共通予備日（2026-06-18）のため予測なし。順位表は6/17終了時点のNPB公式成績を使用。累積21試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。単一試合の的中外れでロジックを過剰変更しない。
   </div>
 
 </body>
