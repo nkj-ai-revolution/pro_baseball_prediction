@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>NPBプロ野球予測 2026-06-18</title>
+  <title>NPBプロ野球予測 2026-06-19</title>
   <style>
     :root {
       --bg: #0B1220;
@@ -67,9 +67,10 @@
     .prob-labels { display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 3px; }
     .prob-home { color: var(--home); font-weight: 600; }
     .prob-visitor { color: var(--visitor); font-weight: 600; }
-    .prob-bar-track { height: 6px; background: var(--bar-bg); border-radius: 3px; overflow: hidden; }
-    .prob-bar-fill { height: 100%; border-radius: 3px 0 0 3px; }
-    .fill-home { background: var(--home); }
+    .prob-bar-track { height: 6px; background: var(--bar-bg); border-radius: 3px; overflow: hidden; display: flex; }
+    .prob-bar-fill { height: 100%; }
+    .fill-home { background: var(--home); border-radius: 3px 0 0 3px; }
+    .fill-visitor { background: var(--visitor); border-radius: 0 3px 3px 0; margin-left: auto; }
     .score-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
     .score-label { font-size: 10px; color: var(--muted); }
     .score-val { font-size: 13px; font-weight: 700; color: var(--text); letter-spacing: 0.04em; }
@@ -80,8 +81,9 @@
     .reason-list li { font-size: 10px; color: var(--muted); padding: 1px 0 1px 10px; position: relative; }
     .reason-list li::before { content: '\203A'; position: absolute; left: 0; color: var(--accent); }
     .reason-list li .key { color: var(--text); font-weight: 600; }
-    .reason-list li .pos { color: #86efac; }
-    .reason-list li .neg { color: #fca5a5; }
+    .reason-list li .upd-pos { color: #86efac; }
+    .reason-list li .upd-neg { color: #fca5a5; }
+    .reason-list li .upd-neu { color: var(--muted); }
     .standings-table { width: 100%; border-collapse: collapse; font-size: 11px; }
     .standings-table th { color: var(--muted); font-weight: 600; font-size: 10px; text-align: center; padding: 4px 3px; border-bottom: 1px solid var(--border); }
     .standings-table th:first-child, .standings-table th:nth-child(2) { text-align: left; padding-left: 4px; }
@@ -95,55 +97,35 @@
     .about-note .highlight { color: var(--accent); font-weight: 700; }
     .disclaimer { margin-top: 8px; padding: 10px 12px; background: var(--card-bg2); border: 1px solid var(--border); border-radius: 8px; font-size: 10px; color: var(--muted); line-height: 1.6; }
     .disclaimer .warn { color: var(--danger); font-weight: 700; }
-    .no-game-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 24px 16px; text-align: center; margin-bottom: 14px; }
-    .no-game-icon { font-size: 32px; margin-bottom: 8px; }
-    .no-game-title { font-size: 16px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
-    .no-game-body { font-size: 11px; color: var(--muted); line-height: 1.6; }
   </style>
 </head>
 <body>
 
   <div class="header">
     <div class="header-label">NPB プロ野球 AI 予測</div>
-    <div class="header-date">2026年6月18日（木）</div>
-    <div class="header-sub">共通予備日 — 本日は試合なし</div>
-    <div class="header-badge final">データ基準: 2026-06-18 最終分析版</div>
+    <div class="header-date">2026年6月19日（金）</div>
+    <div class="header-sub">リーグ公式戦 全6試合</div>
+    <div class="header-badge">データ基準: 2026-06-19 朝版</div>
   </div>
 
   <div class="notice-box">
-    <span style="color:var(--accent);font-weight:700;">6/17 結果:</span>
+    <span style="color:var(--accent);font-weight:700;">前回検証（6/17）:</span>
     阪神 10-3 楽天（予測: 阪神63%B ✓的中）大竹耕太郎6回無失点・大山2ランHR先制
-    ／ <strong style="color:var(--home);">1勝0敗</strong> → 累積21試合: <strong style="color:var(--home);">12勝9敗 (57.1%)</strong> ／ Brier <strong style="color:var(--accent);">0.240</strong>（ランダム0.25を継続的に下回り改善基調）
-    <span style="color:var(--muted);margin-top:4px;display:block;">
-      【6/18付 登録公示】抹消: 阪神・岡留英貴（投手）、ソフトバンク・髙橋隆慶（内野手）／ 新規登録なし（再登録可能日: 6月28日以降）
-    </span>
-  </div>
-
-  <div class="section-title" style="margin-top:18px;">本日の状況</div>
-  <div class="no-game-box">
-    <div class="no-game-icon">📅</div>
-    <div class="no-game-title">本日は試合なし</div>
-    <div class="no-game-body">
-      6月18日（木）は共通予備日です。<br>
-      交流戦終了後の日程調整日となります。<br>
-      <strong style="color:var(--text);">6/19（金）より全12球団がリーグ戦を再開します。</strong>
-    </div>
-  </div>
-
-  <div class="section-title">6/19（金）先発確定・先行予測 ／ 全6試合</div>
-  <div class="notice-box" style="margin-bottom:8px;font-size:10px;color:var(--muted);">
-    最終分析版にて予告先発を取得・先行予測を初回算出。先発成績は6/17終了時点。朝版では予告先発未取得のためスケジュールのみ掲載（前回比変動なし・初回算出）。
+    ／ <strong style="color:var(--home);">1勝0敗</strong> → 累積21試合:
+    <strong style="color:var(--home);">12勝9敗 (57.1%)</strong> ／ Brier
+    <strong style="color:var(--accent);">0.240</strong>（ランダム0.25↓継続改善）
+    <span style="color:var(--muted);margin-top:4px;display:block;">6/18は試合なし（共通予備日）／【6/18付公示】阪神・岡留英貴（投手）抹消、SB・髙橋隆慶（内野手）抹消。再登録可能日: 6月28日以降</span>
   </div>
 
   <div class="pick-banner seeoff">
     <div class="pick-icon">👀</div>
     <div>
-      <div class="pick-title seeoff">厳選ピック（グレードA・70%以上）: 該当なし</div>
-      <div class="pick-body">最高62%（巨人）。全6試合グレードB（参考推奨）。両先発が好拮抗する試合が多く70%到達なし。</div>
+      <div class="pick-title seeoff">厳選ピック（グレードA・70%以上）: 該当なし — 本日は見送り推奨</div>
+      <div class="pick-body">全6試合グレードB（58〜62%）。全先発確認済みだが最高62%どまり。両先発とも水準以上の登板が多く差がつきにくい日。</div>
     </div>
   </div>
 
-  <!-- 62% 巨人 -->
+  <!-- 62% 巨人（ホーム） -->
   <div class="game-card grade-b-card">
     <div class="card-meta">
       <span class="card-venue">東京ドーム</span>
@@ -172,18 +154,18 @@
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
-      <span class="score-val">4-2</span>
+      <span class="score-val">3-1</span>
       <span class="predicted-winner home-win">巨人 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">竹丸和幸 ERA2.76 WHIP1.18 K/BB3.71</span>（10登板62回）安定先発</li>
-      <li><span class="key">チーム成績差 .548(セ1位) vs .349(最下位) = .199</span>・セ最大格差</li>
-      <li><span class="pos">東京ドーム本拠地アドバンテージ（+4pt基準）</span></li>
-      <li>金丸夢斗ERA2.43は優秀（11登板4勝5敗）も中日援護不足が主因・先発単体格差は小</li>
+      <li><span class="key">チーム成績差: 巨人.548(セ1位) vs 中日.349(最下位) = .199差</span> — セ今季最大格差</li>
+      <li><span class="key">竹丸和幸 ERA2.98 WHIP1.12 K/BB4.2</span>（10登板・規定到達済み）安定した先発</li>
+      <li>金丸夢斗 ERA2.43 WHIP1.19 K/BB4.2（4勝5敗・援護不足主因）先発質は金丸微優位だがWHIP・K/BBは拮抗</li>
+      <li><span class="upd-pos">東京ドーム本拠地アドバンテージ（+4pt基準）</span>。先発拮抗・チーム差が決定打</li>
     </ul>
   </div>
 
-  <!-- 61% ヤクルト -->
+  <!-- 61% ヤクルト（ホーム） -->
   <div class="game-card grade-b-card">
     <div class="card-meta">
       <span class="card-venue">明治神宮野球場</span>
@@ -212,18 +194,19 @@
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
-      <span class="score-val">3-1</span>
+      <span class="score-val">4-2</span>
       <span class="predicted-winner home-win">ヤクルト 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">チーム成績差 .540 vs .390 = .150</span>（ヤクルト有意優位）</li>
-      <li><span class="pos">吉村貢司郎 ERA3.83 WHIP0.99（3勝5敗は援護不足主因）</span></li>
-      <li><span class="neg">F.ターノック ERA3.58 WHIP1.33 0勝3敗（7登板）やや不安定</span></li>
+      <li><span class="key">チーム成績差: ヤクルト.540(セ2位) vs 広島.390(セ5位) = .150差</span></li>
+      <li><span class="upd-pos">吉村貢司郎 ERA3.83 WHIP0.99（3勝5敗・援護不足主因）WHIP0.99は優秀</span></li>
+      <li><span class="upd-neg">F.ターノック ERA3.58 WHIP1.33（0勝3敗・7登板）走者を多く出す傾向</span></li>
+      <li>神宮は本塁打が出やすい球場。両先発ERA3台で得点傾向高め。ヤクルト打線の長打力が微加算</li>
       <li>明治神宮本拠地アドバンテージ（+4pt基準）</li>
     </ul>
   </div>
 
-  <!-- 60% ロッテ -->
+  <!-- 60% ロッテ（ホーム） -->
   <div class="game-card grade-b-card">
     <div class="card-meta">
       <span class="card-venue">ZOZOマリンスタジアム</span>
@@ -252,14 +235,14 @@
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
-      <span class="score-val">4-3</span>
+      <span class="score-val">4-2</span>
       <span class="predicted-winner home-win">ロッテ 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">チーム成績差 .500 vs .365 = .135</span>（ロッテ有意優位）</li>
-      <li><span class="key">A.ジャクソン ERA3.41 vs 荘司康誠 ERA3.91</span>: ロッテ先発微優位</li>
-      <li><span class="neg">ジャクソン BB27/68.2回（K/BB2.56）のコントロールリスクは加味済み</span></li>
-      <li>ZOZOマリン本拠地アドバンテージ（+4pt基準）</li>
+      <li><span class="key">チーム成績差: ロッテ.500 vs 楽天.365 = .135差</span>（ロッテ有意優位）</li>
+      <li><span class="key">A.ジャクソン ERA3.41 WHIP1.15 vs 荘司康誠 ERA3.91 WHIP1.25</span> — ジャクソン微優位</li>
+      <li><span class="upd-neg">ジャクソン BB27/68.2回（K/BB2.56）制球難リスクは加味済み</span></li>
+      <li>荘司 被HR10（11登板）多め。ZOZOマリン本拠地アドバンテージ（+4pt基準）</li>
     </ul>
   </div>
 
@@ -287,19 +270,19 @@
         <span class="prob-visitor">阪神 60%</span>
       </div>
       <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:40%"></div>
+        <div class="prob-bar-fill fill-visitor" style="width:60%"></div>
       </div>
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
-      <span class="score-val">1-2</span>
+      <span class="score-val">1-3</span>
       <span class="predicted-winner visitor-win">阪神 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">村上頌樹 ERA1.84 K/BB4.31</span>（12登板5勝4敗83回）リーグ最高水準先発</li>
-      <li><span class="key">チーム成績差 .540 vs .419 = .121</span>（阪神優位）</li>
-      <li>石田裕太郎 ERA2.28 K/BB5.50も優秀・DeNA本拠地+4pt考慮も村上優位を維持</li>
-      <li><span class="neg">6/18付 岡留英貴（阪神投手）抹消でブルペン薄化・先発依存度上がる</span></li>
+      <li><span class="key">村上頌樹 ERA1.84 WHIP0.92 K/BB4.3</span>（12登板5勝4敗83回・QS率91.7%）リーグ最高水準先発</li>
+      <li><span class="key">チーム成績差: 阪神.540(セ2位) vs DeNA.419 = .121差</span>（阪神優位）</li>
+      <li>石田裕太郎 ERA2.28 WHIP1.09 K/BB5.5（3勝6敗・援護不足）も水準以上。DeNA本拠地+4pt考慮済み</li>
+      <li><span class="upd-neg">6/18付: 岡留英貴（阪神）抹消でブルペン薄化。村上の長回し先発が期待値</span></li>
     </ul>
   </div>
 
@@ -327,19 +310,19 @@
         <span class="prob-visitor">西武 59%</span>
       </div>
       <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:41%"></div>
+        <div class="prob-bar-fill fill-visitor" style="width:59%"></div>
       </div>
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
-      <span class="score-val">1-3</span>
+      <span class="score-val">1-2</span>
       <span class="predicted-winner visitor-win">西武 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">髙橋光成 ERA1.08 K/BB3.59</span>（10登板7勝3敗75.1回）支配的先発</li>
-      <li><span class="key">チーム成績差 .641 vs .556 = .085</span>（西武優位）</li>
-      <li>A.エスピノーザ ERA1.97 K/BB3.75も優秀・京セラD本拠地+4pt加算後も西武優位を維持</li>
-      <li>ERA差1.08 vs 1.97（0.89差）が本拠地+4ptを上回ると判断</li>
+      <li><span class="key">髙橋光成 ERA1.08 WHIP0.78 K/BB3.6</span>（10登板7勝3敗75.1回）今季パ屈指の支配的先発</li>
+      <li><span class="key">チーム成績差: 西武.641(パ1位) vs OX.556 = .085差</span>（西武優位）</li>
+      <li><span class="upd-pos">A.エスピノーザ ERA1.97 WHIP1.00 K/BB3.75（6勝2敗）も高水準</span>。両先発ともエース格</li>
+      <li>京セラドーム本拠地+4pt加算後も、髙橋ERA1.08の先発優位が逆転させると判断</li>
     </ul>
   </div>
 
@@ -367,19 +350,19 @@
         <span class="prob-visitor">ソフトバンク 58%</span>
       </div>
       <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:42%"></div>
+        <div class="prob-bar-fill fill-visitor" style="width:58%"></div>
       </div>
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
-      <span class="score-val">1-2</span>
+      <span class="score-val">2-4</span>
       <span class="predicted-winner visitor-win">ソフトバンク 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">大津亮介 ERA1.43 K/BB7.22</span>（10登板7勝1敗69.1回）今季最高水準先発</li>
-      <li><span class="key">チーム成績差 .587 vs .552 = .035</span>（SB微優位）</li>
-      <li>伊藤大海 ERA2.77 K/BB5.29（7勝3敗）も安定・エスコンF本拠地+4pt加算</li>
-      <li>本拠地+4pt加算後もSB先発質の優位が逆転・ビジター優位と判断</li>
+      <li><span class="key">大津亮介 ERA1.43 WHIP0.94 K/BB10.8</span>（10登板7勝1敗69.1回・QS率100%）今季最高水準先発</li>
+      <li><span class="key">チーム成績差: SB.587 vs 日本ハム.552 = .035差</span>（SB微優位）</li>
+      <li>伊藤大海 ERA2.77 WHIP1.17 K/BB5.3（7勝3敗81.1回）も安定。エスコンF本拠地+4pt加算済み</li>
+      <li>本拠地+4pt後もSB大津の先発質優位が逆転。K/BB10.8は突出した制球の安定性</li>
     </ul>
   </div>
 
@@ -388,54 +371,57 @@
     <div style="flex:1;">
       <div style="font-size:10px;color:var(--muted);font-weight:600;margin-bottom:4px;border-bottom:1px solid var(--border);padding-bottom:3px;">パ・リーグ</div>
       <table class="standings-table">
-        <thead><tr><th>#</th><th>チーム</th><th>勝</th><th>敗</th><th>分</th><th>勝率</th></tr></thead>
+        <thead><tr><th>#</th><th>チーム</th><th>勝</th><th>敗</th><th>勝率</th></tr></thead>
         <tbody>
-          <tr class="pl"><td>1</td><td class="team-abbr">西武</td><td>41</td><td>23</td><td>2</td><td class="rate">.641</td></tr>
-          <tr class="pl"><td>2</td><td class="team-abbr">SB</td><td>37</td><td>26</td><td>0</td><td class="rate">.587</td></tr>
-          <tr class="pl"><td>3</td><td class="team-abbr">OX</td><td>35</td><td>28</td><td>1</td><td class="rate">.556</td></tr>
-          <tr class="pl"><td>4</td><td class="team-abbr">日本ハム</td><td>37</td><td>30</td><td>0</td><td class="rate">.552</td></tr>
-          <tr class="pl"><td>5</td><td class="team-abbr">ロッテ</td><td>31</td><td>31</td><td>2</td><td class="rate">.500</td></tr>
-          <tr class="pl"><td>6</td><td class="team-abbr">楽天</td><td>23</td><td>40</td><td>1</td><td class="rate">.365</td></tr>
+          <tr class="pl"><td>1</td><td class="team-abbr">西武</td><td>41</td><td>23</td><td class="rate">.641</td></tr>
+          <tr class="pl"><td>2</td><td class="team-abbr">SB</td><td>37</td><td>26</td><td class="rate">.587</td></tr>
+          <tr class="pl"><td>3</td><td class="team-abbr">OX</td><td>35</td><td>28</td><td class="rate">.556</td></tr>
+          <tr class="pl"><td>4</td><td class="team-abbr">日ハム</td><td>37</td><td>30</td><td class="rate">.552</td></tr>
+          <tr class="pl"><td>5</td><td class="team-abbr">ロッテ</td><td>31</td><td>31</td><td class="rate">.500</td></tr>
+          <tr class="pl"><td>6</td><td class="team-abbr">楽天</td><td>23</td><td>40</td><td class="rate">.365</td></tr>
         </tbody>
       </table>
     </div>
     <div style="flex:1;">
       <div style="font-size:10px;color:var(--muted);font-weight:600;margin-bottom:4px;border-bottom:1px solid var(--border);padding-bottom:3px;">セ・リーグ</div>
       <table class="standings-table">
-        <thead><tr><th>#</th><th>チーム</th><th>勝</th><th>敗</th><th>分</th><th>勝率</th></tr></thead>
+        <thead><tr><th>#</th><th>チーム</th><th>勝</th><th>敗</th><th>勝率</th></tr></thead>
         <tbody>
-          <tr class="cl"><td>1</td><td class="team-abbr">巨人</td><td>34</td><td>28</td><td>2</td><td class="rate">.548</td></tr>
-          <tr class="cl"><td>2</td><td class="team-abbr">ヤクルト</td><td>34</td><td>29</td><td>1</td><td class="rate">.540</td></tr>
-          <tr class="cl"><td>2</td><td class="team-abbr">阪神</td><td>34</td><td>29</td><td>1</td><td class="rate">.540</td></tr>
-          <tr class="cl"><td>4</td><td class="team-abbr">DeNA</td><td>26</td><td>36</td><td>2</td><td class="rate">.419</td></tr>
-          <tr class="cl"><td>5</td><td class="team-abbr">広島</td><td>23</td><td>36</td><td>3</td><td class="rate">.390</td></tr>
-          <tr class="cl"><td>6</td><td class="team-abbr">中日</td><td>22</td><td>41</td><td>1</td><td class="rate">.349</td></tr>
+          <tr class="cl"><td>1</td><td class="team-abbr">巨人</td><td>34</td><td>28</td><td class="rate">.548</td></tr>
+          <tr class="cl"><td>2</td><td class="team-abbr">ヤクルト</td><td>34</td><td>29</td><td class="rate">.540</td></tr>
+          <tr class="cl"><td>2</td><td class="team-abbr">阪神</td><td>34</td><td>29</td><td class="rate">.540</td></tr>
+          <tr class="cl"><td>4</td><td class="team-abbr">DeNA</td><td>26</td><td>36</td><td class="rate">.419</td></tr>
+          <tr class="cl"><td>5</td><td class="team-abbr">広島</td><td>23</td><td>36</td><td class="rate">.390</td></tr>
+          <tr class="cl"><td>6</td><td class="team-abbr">中日</td><td>22</td><td>41</td><td class="rate">.349</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <div class="section-title" style="margin-top:18px;">予測精度サマリー（21試合終了時点・6/17検証済み）</div>
+  <div class="section-title" style="margin-top:18px;">予測精度サマリー（21試合終了・6/17検証済み）</div>
   <div style="background:var(--card-bg2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:10px;color:var(--muted);line-height:1.8;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
       <div>累積的中率: <strong style="color:var(--home);">57.1%</strong>（12/21）</div>
-      <div>Brierスコア: <strong style="color:var(--accent);">0.240</strong>（ランダム0.25↓ 改善継続）</div>
+      <div>Brierスコア: <strong style="color:var(--accent);">0.240</strong>（ランダム0.25↓改善継続）</div>
       <div>グレードB的中率: <strong style="color:var(--home);">57.1%</strong>（8/14）</div>
       <div>グレードC的中率: <strong style="color:var(--home);">57.1%</strong>（4/7）</div>
-      <div>ホーム予測的中: <strong style="color:var(--muted);">55.6%</strong>（10/18）</div>
+      <div>ホーム予測的中: <strong>55.6%</strong>（10/18）</div>
       <div>ビジター予測: <strong style="color:var(--accent);">66.7%</strong>（2/3・小サンプル）</div>
     </div>
     <div style="margin-top:6px;border-top:1px solid var(--border);padding-top:6px;">
-      数試合では統計的に無意味。評価は数十試合単位。グレードBとCが同率57.1%。3試合連続的中（6/16: 64%・55%、6/17: 63%）だが基礎ロジックは変更しない。ERA10台以上先発55%以下・上限65%・ホーム+4ptの較正ルール継続適用。
+      数試合では統計的に無意味。評価は数十試合単位。B・C同率57.1%。6/16以降ビジター予測3連続的中（3試合サンプル）だがホーム+4pt基準は変更しない。ERA10台以上先発55%以下・上限65%・ホーム+4ptの較正ルール継続適用。
     </div>
   </div>
 
   <div class="about-note">
-    🎯 <span class="highlight">このサイトについて：</span>本予測は、野球好きの個人が「システムを使ってどこまで予測できるか」を純粋に楽しむ趣味プロジェクトです（仕事でシステムを扱っているため、その応用として取り組んでいます）。<span class="highlight">勝敗予想を賭博等に利用することは固く禁止します。</span>
+    🎯 <span class="highlight">このサイトについて：</span>本予測は、野球好きの個人が
+    「システムを使ってどこまで予測できるか」を純粋に楽しむ趣味プロジェクトです
+    （仕事でシステムを扱っているため、その応用として取り組んでいます）。
+    <span class="highlight">勝敗予想を賭博等に利用することは固く禁止します。</span>
   </div>
 
   <div class="disclaimer">
-    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、65%の本命でも約35%は負ける。投資・賭博等の判断への使用は禁止します。本ページは共通予備日（2026-06-18）の最終分析版。6/19先行予測は先発成績（6/17時点）・チーム成績（6/17終了時点）を基に算出。順位表は6/17終了時点のNPB公式成績を使用。累積21試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。単一試合の的中外れでロジックを過剰変更しない。
+    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、65%の本命でも約35%は負ける。投資・賭博等の判断への使用は禁止します。本ページは2026-06-19（朝版）。先発成績・チーム成績は6/17終了時点。登録公示は6/18付確認済み（6/19付は試合前時点）。累積21試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。
   </div>
 
 </body>
