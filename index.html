@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>NPBプロ野球予測 2026-06-20</title>
+  <title>NPBプロ野球予測 2026-06-21</title>
   <style>
     :root {
       --bg: #0B1220;
@@ -94,172 +94,135 @@
     .standings-table .rate { font-weight: 700; color: var(--home); }
     .standings-table .team-abbr { font-weight: 600; }
     .about-note { margin-top: 20px; padding: 10px 12px; background: rgba(63,166,107,0.07); border: 1px solid rgba(63,166,107,0.25); border-radius: 8px; font-size: 10px; color: var(--muted); line-height: 1.6; }
-    .about-note .highlight { color: var(--accent); font-weight: 700; }
+    .about-note .highlight { color: #3FA66B; font-weight: 700; }
     .disclaimer { margin-top: 8px; padding: 10px 12px; background: var(--card-bg2); border: 1px solid var(--border); border-radius: 8px; font-size: 10px; color: var(--muted); line-height: 1.6; }
     .disclaimer .warn { color: var(--danger); font-weight: 700; }
-    .status-badge { font-size: 10px; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
-    .status-badge.started { background: rgba(239,68,68,0.12); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
-    .status-badge.cancelled { background: rgba(100,116,139,0.15); color: var(--muted); border: 1px solid rgba(100,116,139,0.3); }
-    .game-card.cancelled-card { opacity: 0.5; }
   </style>
 </head>
 <body>
 
   <div class="header">
     <div class="header-label">NPB プロ野球 AI 予測</div>
-    <div class="header-date">2026年6月20日（土）</div>
-    <div class="header-sub">リーグ公式戦 全6試合</div>
-    <div class="header-badge final">データ基準: 2026-06-20 最終分析版</div>
+    <div class="header-date">2026年6月21日（日）</div>
+    <div class="header-sub">リーグ公式戦 全6試合（振替2試合含む）</div>
+    <div class="header-badge">データ基準: 2026-06-21 朝版</div>
   </div>
 
   <div class="notice-box">
-    <span style="color:var(--accent);font-weight:700;">前回検証（6/19）:</span>
-    3勝3敗（中日3-2逆転・OX延長10回サヨナラ・日ハム4-3逃げ切り）
-    → <strong style="color:var(--home);">累積27試合: 15勝12敗 (55.6%)</strong> ／ Brier
-    <strong style="color:var(--accent);">0.243</strong>（ランダム0.25↓継続）
-    <span style="color:var(--muted);margin-top:4px;display:block;">不的中: 巨人（金丸ERA2.43が竹丸を上回り中日逆転）/ 西武（エスピノーザ→マチャドがサヨナラ）/ SB（伊藤大海-柳川リレーで4-3完封）</span>
-    <span style="color:var(--danger);font-weight:700;margin-top:6px;display:block;">【最終分析版 変動サマリー】</span>
-    <span style="color:var(--muted);margin-top:2px;display:block;">
-      試合開始済み（確率変更不可）: ヤクルトvs広島（3回・1-1）/ 巨人vs中日（4回・1-0）/ OXvs西武（4回・0-2）/ 日ハムvsSB（3回・0-3）<br>
-      中止: ロッテvs楽天（ZOZOマリン・18:00）<br>
-      未開始・更新: DeNAvs阪神（18:15）— 0pt変動。伊藤将司 ERA6.14 WHIP1.36 K/BB8.00（2登板7.1回）新取得。K/BB優秀も被安打高め・超小サンプルにつきB上限・59%維持。先発変更なし。
-    </span>
-    <span style="color:var(--muted);margin-top:4px;display:block;">【6/20付公示】登録▶巨人・浅野翔吾（外野手）、中日・大野雄大（投手・本日先発確認）、広島・常廣羽也斗（投手）／抹消▶広島・益田武尚（投手）、ヤクルト・内山壮真（内野手）、OX・池田陵真（外野手）</span>
+    <span style="color:var(--accent);font-weight:700;">前回検証（6/20）:</span>
+    2勝2敗（ヤクルト×コールド逆転・西武○完封・巨人○・日ハム×SB10点、中止2試合除く）
+    → <strong style="color:var(--home);">累積31試合: 17勝14敗 (54.8%)</strong> ／ Brier
+    <strong style="color:var(--accent);">0.244</strong>（ランダム0.25↓継続）
+    <span style="color:var(--muted);margin-top:4px;display:block;">不的中: ヤクルト63%B→廣澤敗戦・広島が5〜6回に7点逆転コールド / 日ハム55%C→孫易磊炎上・SB10点大量点</span>
+    <span style="color:var(--muted);margin-top:4px;display:block;">【本日特記】DeNAvs阪神・ロッテvs楽天は6/20中止の振替試合。登録公示6/20付: 中日・大野雄大(投)登録, 広島・常廣羽也斗(投)登録 / 広島・益田武尚(投)抹消, 楽天・荘司康誠(投)抹消（再登録可:6/30以降）</span>
   </div>
 
   <div class="pick-banner seeoff">
     <div class="pick-icon">👀</div>
     <div>
       <div class="pick-title seeoff">厳選ピック（グレードA・70%以上）: 該当なし — 本日は見送り推奨</div>
-      <div class="pick-body">最高63%（ヤクルト）どまり。デーゲーム4試合は開始済みにつき変更不可。ロッテvs楽天は中止。DeNAvs阪神は59%B（変動なし）。見送り推奨に変更なし。</div>
+      <div class="pick-body">最高63%（阪神・ビジター）どまり。確率の正直な上限65%方針上、70%以上のグレードA該当試合なし。</div>
     </div>
   </div>
 
-  <!-- 63% ヤクルト（ホーム） -->
+  <!-- 63% 阪神（ビジター） DeNA vs 阪神 振替 -->
   <div class="game-card grade-b-card">
     <div class="card-meta">
-      <span class="card-venue">明治神宮野球場</span>
-      <span class="card-time">14:00</span>
+      <span class="card-venue">横浜スタジアム</span>
+      <span class="card-time">18:15 ★振替</span>
       <span class="grade-badge B">B</span>
-      <span class="status-badge started">試合中</span>
     </div>
     <div class="teams-row">
       <div class="team-block">
-        <div class="team-name home">ヤクルト</div>
-        <div class="team-starter">松本健吾</div>
+        <div class="team-name home">DeNA</div>
+        <div class="team-starter">尾形崇斗</div>
       </div>
       <div class="vs-label">vs</div>
       <div class="team-block">
-        <div class="team-name visitor">広島</div>
-        <div class="team-starter">森下暢仁</div>
+        <div class="team-name visitor">阪神</div>
+        <div class="team-starter">髙橋遥人</div>
       </div>
     </div>
     <div class="prob-section">
       <div class="prob-labels">
-        <span class="prob-home">ヤクルト 63%</span>
-        <span class="prob-visitor">広島 37%</span>
+        <span class="prob-home">DeNA 37%</span>
+        <span class="prob-visitor">阪神 63%</span>
       </div>
       <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:63%"></div>
+        <div class="prob-bar-fill fill-visitor" style="width:63%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">1-4</span>
+      <span class="predicted-winner visitor-win">阪神 予測</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="key">髙橋遥人 ERA1.07 WHIP0.70（10登板8勝0敗）</span>— 今季セリーグ最高水準の先発。制球・奪三振ともに圧倒的</li>
+      <li><span class="upd-neg">尾形崇斗 ERA3.07 WHIP1.02（3登板・小サンプル）— ERA差2.0ptが先発質の差として顕在化リスク大</span></li>
+      <li><span class="key">チーム成績差: 阪神.547(セ1位T) vs DeNA.413 = .134差</span></li>
+      <li>6/19の村上ERA1.84で阪神60%B→3-11的中。今日の髙橋ERA1.07はさらに支配的(+3pt上積みの根拠)</li>
+      <li>横浜スタジアム本拠地+4pt(DeNA)考慮後も、髙橋先発質+チーム差が逆転。6/20中止の振替でブルペン両チーム休養済み</li>
+    </ul>
+  </div>
+
+  <!-- 62% ロッテ（ホーム） ロッテ vs 楽天 振替 -->
+  <div class="game-card grade-b-card">
+    <div class="card-meta">
+      <span class="card-venue">ZOZOマリンスタジアム</span>
+      <span class="card-time">17:00 ★振替</span>
+      <span class="grade-badge B">B</span>
+    </div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">ロッテ</div>
+        <div class="team-starter">小島和哉</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">楽天</div>
+        <div class="team-starter">藤井聖</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">ロッテ 62%</span>
+        <span class="prob-visitor">楽天 38%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-home" style="width:62%"></div>
       </div>
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
       <span class="score-val">4-2</span>
-      <span class="predicted-winner home-win">ヤクルト 予測</span>
+      <span class="predicted-winner home-win">ロッテ 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">松本健吾 ERA2.09</span>（規定登板到達・今季エース格の安定感）</li>
-      <li><span class="key">チーム成績差: ヤクルト.547(セ1位T) vs 広島.383(セ5位) = .164差</span></li>
-      <li><span class="upd-neg">森下暢仁 ERA3.88（7登板・調整不安定・WHIP高め）広島先発は力不足</span></li>
-      <li>明治神宮本拠地アドバンテージ（+4pt基準）。神宮は本塁打出やすく得点傾向高め</li>
-      <li><span class="upd-neu">最終分析版: 先発変更なし・内山壮真（ヤクルト・内野手）抹消・常廣羽也斗（広島・投手）登録確認。試合開始済みにつき確率変更不可</span></li>
+      <li><span class="key">小島和哉 ERA2.57 WHIP1.10（7登板2勝4敗）</span>— 勝敗より投球内容を優先評価。対楽天1登板ERA1.29と相性良好</li>
+      <li><span class="upd-neg">藤井聖 ERA3.27 WHIP1.21（6登板1勝3敗）— 先発数値で小島に劣位</span></li>
+      <li><span class="key">チーム成績差: ロッテ.508 vs 楽天.359 = .149差</span></li>
+      <li>ZOZOマリン本拠地+4pt。6/20中止の振替でブルペン両チーム休養済み</li>
+      <li><span class="upd-neg">楽天は荘司康誠(6/20抹消・再登録可6/30以降)でローテが1枚薄化。6/19も8-5でロッテに敗れており打線低調</span></li>
     </ul>
   </div>
 
-  <!-- ロッテ vs 楽天 中止 -->
-  <div class="game-card grade-c-card cancelled-card">
-    <div class="card-meta">
-      <span class="card-venue">ZOZOマリンスタジアム</span>
-      <span class="card-time">18:00</span>
-      <span class="status-badge cancelled">中止</span>
-    </div>
-    <div class="teams-row">
-      <div class="team-block">
-        <div class="team-name" style="color:var(--muted);">ロッテ</div>
-        <div class="team-starter">小島和哉</div>
-      </div>
-      <div class="vs-label">vs</div>
-      <div class="team-block">
-        <div class="team-name" style="color:var(--muted);">楽天</div>
-        <div class="team-starter">岸孝之</div>
-      </div>
-    </div>
-    <ul class="reason-list">
-      <li><span class="upd-neu">本試合は中止（ZOZOマリン・18:00）。予測無効。朝版確率: ロッテ62%B（小島ERA2.57 vs 岸ERA3.18）</span></li>
-    </ul>
-  </div>
-
-  <!-- 62% 西武（ビジター） -->
-  <div class="game-card grade-b-card">
-    <div class="card-meta">
-      <span class="card-venue">京セラドーム大阪</span>
-      <span class="card-time">14:00</span>
-      <span class="grade-badge B">B</span>
-      <span class="status-badge started">試合中</span>
-    </div>
-    <div class="teams-row">
-      <div class="team-block">
-        <div class="team-name home">オリックス</div>
-        <div class="team-starter">L.ペルドモ</div>
-      </div>
-      <div class="vs-label">vs</div>
-      <div class="team-block">
-        <div class="team-name visitor">西武</div>
-        <div class="team-starter">隅田知一郎</div>
-      </div>
-    </div>
-    <div class="prob-section">
-      <div class="prob-labels">
-        <span class="prob-home">オリックス 38%</span>
-        <span class="prob-visitor">西武 62%</span>
-      </div>
-      <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-visitor" style="width:62%"></div>
-      </div>
-    </div>
-    <div class="score-row">
-      <span class="score-label">予想スコア</span>
-      <span class="score-val">1-3</span>
-      <span class="predicted-winner visitor-win">西武 予測</span>
-    </div>
-    <ul class="reason-list">
-      <li><span class="key">隅田知一郎 ERA2.36</span>（安定した左腕先発・今季好調）</li>
-      <li><span class="upd-neg">L.ペルドモ: 4月ERA14.14でリリーフ抹消→ファーム先発→本日1軍先発デビュー。先発実質データ未取得。グレード上限B</span></li>
-      <li><span class="key">チーム成績差: 西武.631(パ1位) vs OX.563 = .068差</span></li>
-      <li><span class="upd-pos">昨日(6/19)OXが延長10回勝利→ブルペン消耗。西武優位に追加要因</span></li>
-      <li>京セラドーム本拠地+4pt加算後も、隅田先発質+ペルドモ不確実性+西武チーム力が逆転</li>
-      <li><span class="upd-neu">最終分析版: 先発変更なし・池田陵真（OX・外野手）抹消は打線影響軽微。試合開始済みにつき確率変更不可</span></li>
-    </ul>
-  </div>
-
-  <!-- 60% 巨人（ホーム） -->
+  <!-- 60% 巨人（ホーム） 巨人 vs 中日 -->
   <div class="game-card grade-b-card">
     <div class="card-meta">
       <span class="card-venue">東京ドーム</span>
       <span class="card-time">14:00</span>
       <span class="grade-badge B">B</span>
-      <span class="status-badge started">試合中</span>
     </div>
     <div class="teams-row">
       <div class="team-block">
         <div class="team-name home">巨人</div>
-        <div class="team-starter">F.ウィットリー</div>
+        <div class="team-starter">井上温大</div>
       </div>
       <div class="vs-label">vs</div>
       <div class="team-block">
         <div class="team-name visitor">中日</div>
-        <div class="team-starter">大野雄大</div>
+        <div class="team-starter">柳裕也</div>
       </div>
     </div>
     <div class="prob-section">
@@ -273,40 +236,40 @@
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
-      <span class="score-val">3-2</span>
+      <span class="score-val">3-1</span>
       <span class="predicted-winner home-win">巨人 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">チーム成績差: 巨人.540(セ3位) vs 中日.359(最下位) = .181差</span></li>
-      <li><span class="key">F.ウィットリー ERA3.00</span>（安定した先発・6/13も7回好投）</li>
-      <li><span class="upd-neg">大野雄大 ERA2.18（ベテラン左腕・高水準）。昨日の金丸ERA2.43が巨人を破った教訓: 中日エース格には慎重な較正が必要</span></li>
-      <li>東京ドーム本拠地アドバンテージ（+4pt基準）。チーム差が主根拠だが上限を62%→60%に抑制</li>
-      <li><span class="upd-neu">最終分析版: 先発変更なし・浅野翔吾（巨人・外野手）登録・大野雄大（中日）本日付登録確認。試合開始済みにつき確率変更不可</span></li>
+      <li><span class="key">チーム成績差: 巨人.547(セ1位T) vs 中日.354(最下位) = .193差</span>— セ・リーグ最大格差</li>
+      <li><span class="key">井上温大 ERA2.79 WHIP1.06（10登板5勝5敗）</span>— 安定先発。勝敗より投球内容を評価</li>
+      <li><span class="upd-neg">柳裕也 ERA2.13 WHIP1.21（12登板4勝2敗）— 先発ERA・勝率で柳が優位。6/19「金丸ERA2.43が巨人を破った」教訓: 中日先発個人力は過小評価禁止。チーム差の過信を避け62%→60%に慎重設定</span></li>
+      <li>東京ドーム本拠地+4pt。6/20ウィットリー7.2回好投で巨人ブルペン比較的回復</li>
+      <li>中日は6/20大野が先発→ブルペン温存済み。柳の先発優位分を差し引いても巨人のチーム総合力で優位</li>
     </ul>
   </div>
 
-  <!-- 59% DeNA（ホーム） -->
+  <!-- 59% ヤクルト（ホーム） ヤクルト vs 広島 -->
   <div class="game-card grade-b-card">
     <div class="card-meta">
-      <span class="card-venue">横浜スタジアム</span>
-      <span class="card-time">18:15</span>
+      <span class="card-venue">明治神宮野球場</span>
+      <span class="card-time">13:30</span>
       <span class="grade-badge B">B</span>
     </div>
     <div class="teams-row">
       <div class="team-block">
-        <div class="team-name home">DeNA</div>
-        <div class="team-starter">東克樹</div>
+        <div class="team-name home">ヤクルト</div>
+        <div class="team-starter">高橋奎二</div>
       </div>
       <div class="vs-label">vs</div>
       <div class="team-block">
-        <div class="team-name visitor">阪神</div>
-        <div class="team-starter">伊藤将司</div>
+        <div class="team-name visitor">広島</div>
+        <div class="team-starter">岡本駿</div>
       </div>
     </div>
     <div class="prob-section">
       <div class="prob-labels">
-        <span class="prob-home">DeNA 59%</span>
-        <span class="prob-visitor">阪神 41%</span>
+        <span class="prob-home">ヤクルト 59%</span>
+        <span class="prob-visitor">広島 41%</span>
       </div>
       <div class="prob-bar-track">
         <div class="prob-bar-fill fill-home" style="width:59%"></div>
@@ -314,72 +277,112 @@
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
-      <span class="score-val">4-2</span>
-      <span class="predicted-winner home-win">DeNA 予測</span>
+      <span class="score-val">3-2</span>
+      <span class="predicted-winner home-win">ヤクルト 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="key">東克樹 ERA2.27</span>（高水準先発・安定したQS率）</li>
-      <li><span class="upd-neg">伊藤将司 ERA6.14 WHIP1.36 K/BB8.00（2登板7.1回・被安打9）。K/BB優秀（制球◎）だが被安打高め・超小サンプル高ERAにつきB上限継続</span></li>
-      <li>チーム成績: DeNA.413 vs 阪神.547（阪神優位.134差）。昨日阪神が11-3で大勝し波乗り</li>
-      <li>横浜スタジアム本拠地+4pt（DeNA）。東先発の質優位が阪神チーム力差を相殺し予測はDeNA</li>
-      <li><span class="upd-neu">最終分析版: 先発変更なし・確率0pt変動。WHIP・K/BB新取得も2登板7.1回の超小サンプルから59%B維持</span></li>
+      <li><span class="key">チーム成績差: ヤクルト.538(セ3位) vs 広島.393 = .145差</span></li>
+      <li><span class="upd-neg">岡本駿 ERA2.34 WHIP1.15（11登板5勝3敗）— 先発数値は岡本が優位。高橋奎二ERA3.18 WHIP1.32（4登板・小サンプル）。岡本は6/14完封を含む好調維持</span></li>
+      <li>明治神宮本拠地+4pt。本塁打出やすく得点傾向高め。ただし先発岡本の優位分(-2〜3pt)が相殺</li>
+      <li><span class="upd-neg">6/20廣澤が敗戦投手（コールド逆転負け）でヤクルトリリーフ消耗あり。本日は慎重に59%設定</span></li>
+      <li>神宮・両先発ERA3台水準でロースコア接戦傾向。61%→59%に調整</li>
     </ul>
   </div>
 
-  <!-- 55% 日本ハム（ホーム） -->
+  <!-- 55% 西武（ビジター） OX vs 西武 -->
   <div class="game-card grade-c-card">
     <div class="card-meta">
-      <span class="card-venue">エスコンフィールド北海道</span>
-      <span class="card-time">14:00</span>
+      <span class="card-venue">京セラドーム大阪</span>
+      <span class="card-time">13:00</span>
       <span class="grade-badge C">C</span>
-      <span class="status-badge started">試合中</span>
     </div>
     <div class="teams-row">
       <div class="team-block">
-        <div class="team-name home">日本ハム</div>
-        <div class="team-starter">孫易磊</div>
+        <div class="team-name home">オリックス</div>
+        <div class="team-starter">九里亜蓮</div>
       </div>
       <div class="vs-label">vs</div>
       <div class="team-block">
-        <div class="team-name visitor">ソフトバンク</div>
-        <div class="team-starter">C.スチュワートJr.</div>
+        <div class="team-name visitor">西武</div>
+        <div class="team-starter">渡邉勇太朗</div>
       </div>
     </div>
     <div class="prob-section">
       <div class="prob-labels">
-        <span class="prob-home">日本ハム 55%</span>
-        <span class="prob-visitor">ソフトバンク 45%</span>
+        <span class="prob-home">オリックス 45%</span>
+        <span class="prob-visitor">西武 55%</span>
       </div>
       <div class="prob-bar-track">
-        <div class="prob-bar-fill fill-home" style="width:55%"></div>
+        <div class="prob-bar-fill fill-visitor" style="width:55%"></div>
       </div>
     </div>
     <div class="score-row">
       <span class="score-label">予想スコア</span>
-      <span class="score-val">4-3</span>
-      <span class="predicted-winner home-win">日本ハム 予測</span>
+      <span class="score-val">1-3</span>
+      <span class="predicted-winner visitor-win">西武 予測</span>
     </div>
     <ul class="reason-list">
-      <li><span class="upd-neg">孫易磊: 来日3年目・今季2回目先発（6/11が1軍初先発）。超小サンプル。グレード上限B→慎重にC設定(55%)</span></li>
-      <li><span class="upd-neg">C.スチュワートJr. ERA5.59（高ERA・制球不安定傾向）。SB先発も信頼性低い</span></li>
-      <li>チーム成績差: 日本ハム.559 vs SB.578（SB微優位.019差）。ほぼ拮抗</li>
-      <li><span class="upd-pos">エスコンフィールド本拠地+4pt（日ハム）が逆転根拠。昨日日ハムが4-3で逃げ切り勢い良好</span></li>
-      <li>両先発とも不確実性大: 見送り推奨日。グレードC(50〜57%)は統計的にほぼコイントス</li>
-      <li><span class="upd-neu">最終分析版: 先発変更なし。試合開始済みにつき確率変更不可</span></li>
+      <li><span class="key">チーム成績差: 西武.636(パ1位) vs OX.554 = .082差</span></li>
+      <li>九里亜蓮 ERA2.76 WHIP1.11（12登板5勝4敗）vs 渡邉勇太朗 ERA2.94 WHIP1.04（10登板3勝3敗）— ほぼ拮抗（渡邉WHIP微優位）。両先発ともデータ十分</li>
+      <li>京セラドーム本拠地+4pt(OX)考慮後も、西武チーム差.082が逆転根拠。6/16の阪神vs西武(55%C的中)と同パターン</li>
+      <li><span class="upd-pos">6/20隅田が完封勝利→西武ブルペン完全休養。渡邉勇太朗は新鮮な状態で登板</span></li>
+      <li>見送り推奨(グレードC)。先発拮抗・チーム差小でコイントスに近い水準</li>
     </ul>
   </div>
 
-  <div class="section-title" style="margin-top:20px;">2026シーズン順位表（6/19終了時点）</div>
+  <!-- 52% SFB（ビジター） 日本ハム vs SFB -->
+  <div class="game-card grade-c-card">
+    <div class="card-meta">
+      <span class="card-venue">エスコンフィールド北海道</span>
+      <span class="card-time">13:00</span>
+      <span class="grade-badge C">C</span>
+    </div>
+    <div class="teams-row">
+      <div class="team-block">
+        <div class="team-name home">日本ハム</div>
+        <div class="team-starter">柴田獅子</div>
+      </div>
+      <div class="vs-label">vs</div>
+      <div class="team-block">
+        <div class="team-name visitor">ソフトバンク</div>
+        <div class="team-starter">前田悠伍</div>
+      </div>
+    </div>
+    <div class="prob-section">
+      <div class="prob-labels">
+        <span class="prob-home">日本ハム 48%</span>
+        <span class="prob-visitor">ソフトバンク 52%</span>
+      </div>
+      <div class="prob-bar-track">
+        <div class="prob-bar-fill fill-visitor" style="width:52%"></div>
+      </div>
+    </div>
+    <div class="score-row">
+      <span class="score-label">予想スコア</span>
+      <span class="score-val">2-3</span>
+      <span class="predicted-winner visitor-win">ソフトバンク 予測</span>
+    </div>
+    <ul class="reason-list">
+      <li><span class="upd-neg">柴田獅子 ERA2.25 WHIP1.75（1登板・超小サンプル）— データ信頼度が著しく低い。不確実性大によりグレードC上限</span></li>
+      <li><span class="key">前田悠伍 ERA2.70 WHIP1.17（6登板4勝0敗）</span>— WHIP1.17は柴田1.75と比較して明確に優位。先発質が唯一の差別化要因</li>
+      <li>チーム成績差: SFB.585 vs 日本ハム.551 = .034（ほぼ拮抗）</li>
+      <li>エスコンF本拠地+4pt（日ハム）考慮後もSFB52%。前田先発優位がホームアドバンテージを上回る</li>
+      <li><span class="upd-neg">6/20日ハム7-10でSBに逆転負け（孫易磊炎上）。SBは津森・杉山を連日起用中でリリーフ消耗に注意</span></li>
+      <li>見送り推奨(グレードC)。実質ほぼコイントス水準。柴田超小サンプルのみが差別化要因</li>
+    </ul>
+  </div>
+
+  <div class="section-title" style="margin-top:20px;">2026シーズン順位表（6/20終了時点）</div>
   <div style="display:flex;gap:8px;">
     <div style="flex:1;">
       <div style="font-size:10px;color:var(--muted);font-weight:600;margin-bottom:4px;border-bottom:1px solid var(--border);padding-bottom:3px;">パ・リーグ</div>
       <table class="standings-table">
         <thead><tr><th>#</th><th>チーム</th><th>勝</th><th>敗</th><th>勝率</th></tr></thead>
         <tbody>
-          <tr class="pl"><td>1</td><td class="team-abbr">西武</td><td>41</td><td>24</td><td class="rate">.631</td></tr>
-          <tr class="pl"><td>2</td><td class="team-abbr">SB</td><td>37</td><td>27</td><td class="rate">.578</td></tr>
-          <tr class="pl"><td>3</td><td class="team-abbr">OX</td><td>36</td><td>28</td><td class="rate">.563</td></tr>
-          <tr class="pl"><td>4</td><td class="team-abbr">日ハム</td><td>38</td><td>30</td><td class="rate">.559</td></tr>
+          <tr class="pl"><td>1</td><td class="team-abbr">西武</td><td>42</td><td>24</td><td class="rate">.636</td></tr>
+          <tr class="pl"><td>2</td><td class="team-abbr">SB</td><td>38</td><td>27</td><td class="rate">.585</td></tr>
+          <tr class="pl"><td>3</td><td class="team-abbr">OX</td><td>36</td><td>29</td><td class="rate">.554</td></tr>
+          <tr class="pl"><td>4</td><td class="team-abbr">日ハム</td><td>38</td><td>31</td><td class="rate">.551</td></tr>
           <tr class="pl"><td>5</td><td class="team-abbr">ロッテ</td><td>32</td><td>31</td><td class="rate">.508</td></tr>
           <tr class="pl"><td>6</td><td class="team-abbr">楽天</td><td>23</td><td>41</td><td class="rate">.359</td></tr>
         </tbody>
@@ -390,29 +393,29 @@
       <table class="standings-table">
         <thead><tr><th>#</th><th>チーム</th><th>勝</th><th>敗</th><th>勝率</th></tr></thead>
         <tbody>
-          <tr class="cl"><td>1</td><td class="team-abbr">ヤクルト</td><td>35</td><td>29</td><td class="rate">.547</td></tr>
           <tr class="cl"><td>1</td><td class="team-abbr">阪神</td><td>35</td><td>29</td><td class="rate">.547</td></tr>
-          <tr class="cl"><td>3</td><td class="team-abbr">巨人</td><td>34</td><td>29</td><td class="rate">.540</td></tr>
+          <tr class="cl"><td>1</td><td class="team-abbr">巨人</td><td>35</td><td>29</td><td class="rate">.547</td></tr>
+          <tr class="cl"><td>3</td><td class="team-abbr">ヤクルト</td><td>35</td><td>30</td><td class="rate">.538</td></tr>
           <tr class="cl"><td>4</td><td class="team-abbr">DeNA</td><td>26</td><td>37</td><td class="rate">.413</td></tr>
-          <tr class="cl"><td>5</td><td class="team-abbr">広島</td><td>23</td><td>37</td><td class="rate">.383</td></tr>
-          <tr class="cl"><td>6</td><td class="team-abbr">中日</td><td>23</td><td>41</td><td class="rate">.359</td></tr>
+          <tr class="cl"><td>5</td><td class="team-abbr">広島</td><td>24</td><td>37</td><td class="rate">.393</td></tr>
+          <tr class="cl"><td>6</td><td class="team-abbr">中日</td><td>23</td><td>42</td><td class="rate">.354</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <div class="section-title" style="margin-top:18px;">予測精度サマリー（27試合終了・6/19検証済み）</div>
+  <div class="section-title" style="margin-top:18px;">予測精度サマリー（31試合終了・6/20検証済み）</div>
   <div style="background:var(--card-bg2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:10px;color:var(--muted);line-height:1.8;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-      <div>累積的中率: <strong style="color:var(--home);">55.6%</strong>（15/27）</div>
-      <div>Brierスコア: <strong style="color:var(--accent);">0.243</strong>（ランダム0.25↓継続）</div>
-      <div>グレードB的中率: <strong style="color:var(--home);">55.0%</strong>（11/20）</div>
-      <div>グレードC的中率: <strong style="color:var(--home);">57.1%</strong>（4/7）</div>
-      <div>ホーム予測的中: <strong>57.1%</strong>（12/21）</div>
-      <div>ビジター予測: <strong>50.0%</strong>（3/6）</div>
+      <div>累積的中率: <strong style="color:var(--home);">54.8%</strong>（17/31）</div>
+      <div>Brierスコア: <strong style="color:var(--accent);">0.244</strong>（ランダム0.25↓継続）</div>
+      <div>グレードB的中率: <strong style="color:var(--home);">56.5%</strong>（13/23）</div>
+      <div>グレードC的中率: <strong style="color:var(--home);">50.0%</strong>（4/8）</div>
+      <div>ホーム予測的中: <strong>54.2%</strong>（13/24）</div>
+      <div>ビジター予測: <strong>57.1%</strong>（4/7）</div>
     </div>
     <div style="margin-top:6px;border-top:1px solid var(--border);padding-top:6px;">
-      6/19は3勝3敗(50.0%)で0.240→0.243にやや悪化。58〜62%帯(グレードB)の的中率55.0%は較正改善余地あり。ERA10台以上先発55%以下・上限65%・ホーム+4ptの較正ルール継続適用。27試合は統計的に限定的サンプル。
+      6/20は2勝2敗(50.0%)で0.243→0.244にわずかに悪化（中止2試合除く）。55〜63%帯(グレードB)の較正精度向上が中期課題。ERA10台以上先発55%以下・上限65%・ホーム+4ptの較正ルール継続適用。31試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。
     </div>
   </div>
 
@@ -424,7 +427,7 @@
   </div>
 
   <div class="disclaimer">
-    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、65%の本命でも約35%は負ける。投資・賭博等の判断への使用は禁止します。本ページは2026-06-20（最終分析版）。先発成績・チーム成績は6/19終了時点。登録公示は6/20付確認済み。ロッテvs楽天は中止。デーゲーム4試合（14:00〜）は確率変更不可。累積27試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。
+    <span class="warn">【免責事項】</span> 本予測はAIによる統計的分析であり、<span class="warn">勝利を保証するものではありません。</span>野球の単一試合は分散が大きく、65%の本命でも約35%は負ける。投資・賭博等の判断への使用は禁止します。本ページは2026-06-21（朝版）。先発成績・チーム成績は6/20終了時点。登録公示は6/20付確認済み。DeNAvs阪神・ロッテvs楽天は6/20中止の振替試合。累積31試合は統計的に有意なサンプルとは言えず、評価は数十試合単位で行う。
   </div>
 
 </body>
